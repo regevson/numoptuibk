@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../lib/libimgui_static.a CMakeFiles/imgui_static.dir/imgui.cpp.o CMakeFiles/imgui_static.dir/imgui_demo.cpp.o CMakeFiles/imgui_static.dir/imgui_draw.cpp.o CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o CMakeFiles/imgui_static.dir/imgui_tables.cpp.o CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o CMakeFiles/imgui_static.dir/implot.cpp.o CMakeFiles/imgui_static.dir/implot_items.cpp.o CMakeFiles/imgui_static.dir/implot_demo.cpp.o
+/usr/bin/ranlib ../../lib/libimgui_static.a

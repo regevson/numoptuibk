@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libviewer_static.a CMakeFiles/viewer_static.dir/viewer.cpp.o CMakeFiles/viewer_static.dir/keyboard.cpp.o CMakeFiles/viewer_static.dir/mouse.cpp.o CMakeFiles/viewer_static.dir/window.cpp.o
+/usr/bin/ranlib ../lib/libviewer_static.a
