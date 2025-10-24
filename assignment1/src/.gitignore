@@ -1,0 +1,45 @@
+# Build directories and generated files
+/build/
+/bin/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
+/compile_commands.json
+
+# Static and shared libs, object files
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.dll
+*.exe
+
+# Editor and IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*~
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Packages
+*.tar.gz
+*.zip
+
+# Python caches
+__pycache__/
+
+# User-specific files
+*.user
+
+imgui.ini
