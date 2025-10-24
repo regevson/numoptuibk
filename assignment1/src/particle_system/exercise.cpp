@@ -14,14 +14,16 @@ using namespace std;
 
 vec2 posUnDamped(float t, const vec2& x0, const vec2& v0, const vec2& acc)
 {
-    // -- HERE: add analytic 2D formula 
-    return vec2( 0.0f, 0.0f );
+    // analytic 2D formula
+    // x(t) = x0 + v0 * t + 0.5 * a * t^2
+    return x0 + v0 * t + 0.5f * acc * t * t;
 }
 
 float posDampedStokes(float t, float x0, float v0, float acc, float kappa_m)
 {
-    // -- HERE: add analytic 1D formula
-    return 0.0f;
+    // analytic 1D formula
+    // x(t) = x0 + (1/kappa_m) * ( a*t + (v0 - a/kappa_m) * (1 - exp(-kappa_m * t)) )
+    return x0 + (1.0f / kappa_m) * (acc * t + (v0 - acc / kappa_m) * (1.0f - glm::exp(-kappa_m * t)));
 }
 
 

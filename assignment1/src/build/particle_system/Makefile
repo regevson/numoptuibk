@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src
+CMAKE_SOURCE_DIR = /home/juwal/other/numoptuibk/assignment1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build
+CMAKE_BINARY_DIR = /home/juwal/other/numoptuibk/assignment1/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/particle_system//CMakeFiles/progress.marks
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particle_system/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles 0
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles /home/juwal/other/numoptuibk/assignment1/src/build/particle_system//CMakeFiles/progress.marks
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particle_system/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particle_system/clean
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particle_system/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particle_system/preinstall
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particle_system/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particle_system/preinstall
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particle_system/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 particle_system/CMakeFiles/particlesystem.dir/rule:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particle_system/CMakeFiles/particlesystem.dir/rule
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particle_system/CMakeFiles/particlesystem.dir/rule
 .PHONY : particle_system/CMakeFiles/particlesystem.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ particlesystem: particle_system/CMakeFiles/particlesystem.dir/rule
 
 # fast build rule for target.
 particlesystem/fast:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/build
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/build
 .PHONY : particlesystem/fast
 
 exercise.o: exercise.cpp.o
@@ -135,7 +135,7 @@ exercise.o: exercise.cpp.o
 
 # target to build an object file
 exercise.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o
 .PHONY : exercise.cpp.o
 
 exercise.i: exercise.cpp.i
@@ -143,7 +143,7 @@ exercise.i: exercise.cpp.i
 
 # target to preprocess a source file
 exercise.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.i
 .PHONY : exercise.cpp.i
 
 exercise.s: exercise.cpp.s
@@ -151,7 +151,7 @@ exercise.s: exercise.cpp.s
 
 # target to generate assembly for a file
 exercise.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.s
 .PHONY : exercise.cpp.s
 
 particlesystem.o: particlesystem.cpp.o
@@ -159,7 +159,7 @@ particlesystem.o: particlesystem.cpp.o
 
 # target to build an object file
 particlesystem.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o
 .PHONY : particlesystem.cpp.o
 
 particlesystem.i: particlesystem.cpp.i
@@ -167,7 +167,7 @@ particlesystem.i: particlesystem.cpp.i
 
 # target to preprocess a source file
 particlesystem.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.i
 .PHONY : particlesystem.cpp.i
 
 particlesystem.s: particlesystem.cpp.s
@@ -175,7 +175,7 @@ particlesystem.s: particlesystem.cpp.s
 
 # target to generate assembly for a file
 particlesystem.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f particle_system/CMakeFiles/particlesystem.dir/build.make particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.s
 .PHONY : particlesystem.cpp.s
 
 # Help Target
@@ -204,6 +204,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

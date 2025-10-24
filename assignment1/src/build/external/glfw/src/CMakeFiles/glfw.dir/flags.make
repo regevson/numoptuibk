@@ -4,9 +4,9 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -D_GLFW_USE_CONFIG_H
 
-C_INCLUDES = -I/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/glfw/include -I/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/glfw/src -I/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/glfw/src
+C_INCLUDES = -I/home/juwal/other/numoptuibk/assignment1/src/external/glfw/include -I/home/juwal/other/numoptuibk/assignment1/src/external/glfw/src -I/home/juwal/other/numoptuibk/assignment1/src/build/external/glfw/src
 
-C_FLAGS = -O3 -DNDEBUG -std=gnu99 -fPIC  -w -Wall -O3
+C_FLAGS = -std=gnu99 -fPIC  -w -Wall
 
 # Custom flags: external/glfw/src/CMakeFiles/glfw.dir/context.c.o_FLAGS = -Wdeclaration-after-statement
 

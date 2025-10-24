@@ -1,4 +1,4 @@
-# Install script for directory: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/glfw
+# Install script for directory: /home/juwal/other/numoptuibk/assignment1/src/external/glfw
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/glfw/src/cmake_install.cmake")
+  include("/home/juwal/other/numoptuibk/assignment1/src/build/external/glfw/src/cmake_install.cmake")
 
 endif()
 

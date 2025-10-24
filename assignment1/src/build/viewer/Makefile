@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src
+CMAKE_SOURCE_DIR = /home/juwal/other/numoptuibk/assignment1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build
+CMAKE_BINARY_DIR = /home/juwal/other/numoptuibk/assignment1/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer//CMakeFiles/progress.marks
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 viewer/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles 0
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles /home/juwal/other/numoptuibk/assignment1/src/build/viewer//CMakeFiles/progress.marks
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 viewer/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 viewer/clean
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 viewer/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 viewer/preinstall
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 viewer/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 viewer/preinstall
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 viewer/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 viewer/CMakeFiles/viewer_static.dir/rule:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 viewer/CMakeFiles/viewer_static.dir/rule
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 viewer/CMakeFiles/viewer_static.dir/rule
 .PHONY : viewer/CMakeFiles/viewer_static.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ viewer_static: viewer/CMakeFiles/viewer_static.dir/rule
 
 # fast build rule for target.
 viewer_static/fast:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/build
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/build
 .PHONY : viewer_static/fast
 
 keyboard.o: keyboard.cpp.o
@@ -135,7 +135,7 @@ keyboard.o: keyboard.cpp.o
 
 # target to build an object file
 keyboard.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.o
 .PHONY : keyboard.cpp.o
 
 keyboard.i: keyboard.cpp.i
@@ -143,7 +143,7 @@ keyboard.i: keyboard.cpp.i
 
 # target to preprocess a source file
 keyboard.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.i
 .PHONY : keyboard.cpp.i
 
 keyboard.s: keyboard.cpp.s
@@ -151,7 +151,7 @@ keyboard.s: keyboard.cpp.s
 
 # target to generate assembly for a file
 keyboard.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.s
 .PHONY : keyboard.cpp.s
 
 mouse.o: mouse.cpp.o
@@ -159,7 +159,7 @@ mouse.o: mouse.cpp.o
 
 # target to build an object file
 mouse.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/mouse.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/mouse.cpp.o
 .PHONY : mouse.cpp.o
 
 mouse.i: mouse.cpp.i
@@ -167,7 +167,7 @@ mouse.i: mouse.cpp.i
 
 # target to preprocess a source file
 mouse.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/mouse.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/mouse.cpp.i
 .PHONY : mouse.cpp.i
 
 mouse.s: mouse.cpp.s
@@ -175,7 +175,7 @@ mouse.s: mouse.cpp.s
 
 # target to generate assembly for a file
 mouse.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/mouse.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/mouse.cpp.s
 .PHONY : mouse.cpp.s
 
 viewer.o: viewer.cpp.o
@@ -183,7 +183,7 @@ viewer.o: viewer.cpp.o
 
 # target to build an object file
 viewer.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/viewer.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/viewer.cpp.o
 .PHONY : viewer.cpp.o
 
 viewer.i: viewer.cpp.i
@@ -191,7 +191,7 @@ viewer.i: viewer.cpp.i
 
 # target to preprocess a source file
 viewer.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/viewer.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/viewer.cpp.i
 .PHONY : viewer.cpp.i
 
 viewer.s: viewer.cpp.s
@@ -199,7 +199,7 @@ viewer.s: viewer.cpp.s
 
 # target to generate assembly for a file
 viewer.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/viewer.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/viewer.cpp.s
 .PHONY : viewer.cpp.s
 
 window.o: window.cpp.o
@@ -207,7 +207,7 @@ window.o: window.cpp.o
 
 # target to build an object file
 window.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/window.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/window.cpp.o
 .PHONY : window.cpp.o
 
 window.i: window.cpp.i
@@ -215,7 +215,7 @@ window.i: window.cpp.i
 
 # target to preprocess a source file
 window.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/window.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/window.cpp.i
 .PHONY : window.cpp.i
 
 window.s: window.cpp.s
@@ -223,7 +223,7 @@ window.s: window.cpp.s
 
 # target to generate assembly for a file
 window.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/window.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f viewer/CMakeFiles/viewer_static.dir/build.make viewer/CMakeFiles/viewer_static.dir/window.cpp.s
 .PHONY : window.cpp.s
 
 # Help Target
@@ -258,6 +258,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

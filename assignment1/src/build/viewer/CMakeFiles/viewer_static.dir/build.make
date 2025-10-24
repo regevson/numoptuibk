@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src
+CMAKE_SOURCE_DIR = /home/juwal/other/numoptuibk/assignment1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build
+CMAKE_BINARY_DIR = /home/juwal/other/numoptuibk/assignment1/src/build
 
 # Include any dependencies generated for this target.
 include viewer/CMakeFiles/viewer_static.dir/depend.make
@@ -70,60 +70,60 @@ include viewer/CMakeFiles/viewer_static.dir/progress.make
 include viewer/CMakeFiles/viewer_static.dir/flags.make
 
 viewer/CMakeFiles/viewer_static.dir/viewer.cpp.o: viewer/CMakeFiles/viewer_static.dir/flags.make
-viewer/CMakeFiles/viewer_static.dir/viewer.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/viewer.cpp
+viewer/CMakeFiles/viewer_static.dir/viewer.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/viewer/viewer.cpp
 viewer/CMakeFiles/viewer_static.dir/viewer.cpp.o: viewer/CMakeFiles/viewer_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object viewer/CMakeFiles/viewer_static.dir/viewer.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT viewer/CMakeFiles/viewer_static.dir/viewer.cpp.o -MF CMakeFiles/viewer_static.dir/viewer.cpp.o.d -o CMakeFiles/viewer_static.dir/viewer.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/viewer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object viewer/CMakeFiles/viewer_static.dir/viewer.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT viewer/CMakeFiles/viewer_static.dir/viewer.cpp.o -MF CMakeFiles/viewer_static.dir/viewer.cpp.o.d -o CMakeFiles/viewer_static.dir/viewer.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/viewer/viewer.cpp
 
 viewer/CMakeFiles/viewer_static.dir/viewer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/viewer_static.dir/viewer.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/viewer.cpp > CMakeFiles/viewer_static.dir/viewer.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/viewer/viewer.cpp > CMakeFiles/viewer_static.dir/viewer.cpp.i
 
 viewer/CMakeFiles/viewer_static.dir/viewer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/viewer_static.dir/viewer.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/viewer.cpp -o CMakeFiles/viewer_static.dir/viewer.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/viewer/viewer.cpp -o CMakeFiles/viewer_static.dir/viewer.cpp.s
 
 viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.o: viewer/CMakeFiles/viewer_static.dir/flags.make
-viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/keyboard.cpp
+viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/viewer/keyboard.cpp
 viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.o: viewer/CMakeFiles/viewer_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.o -MF CMakeFiles/viewer_static.dir/keyboard.cpp.o.d -o CMakeFiles/viewer_static.dir/keyboard.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/keyboard.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.o -MF CMakeFiles/viewer_static.dir/keyboard.cpp.o.d -o CMakeFiles/viewer_static.dir/keyboard.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/viewer/keyboard.cpp
 
 viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/viewer_static.dir/keyboard.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/keyboard.cpp > CMakeFiles/viewer_static.dir/keyboard.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/viewer/keyboard.cpp > CMakeFiles/viewer_static.dir/keyboard.cpp.i
 
 viewer/CMakeFiles/viewer_static.dir/keyboard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/viewer_static.dir/keyboard.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/keyboard.cpp -o CMakeFiles/viewer_static.dir/keyboard.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/viewer/keyboard.cpp -o CMakeFiles/viewer_static.dir/keyboard.cpp.s
 
 viewer/CMakeFiles/viewer_static.dir/mouse.cpp.o: viewer/CMakeFiles/viewer_static.dir/flags.make
-viewer/CMakeFiles/viewer_static.dir/mouse.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/mouse.cpp
+viewer/CMakeFiles/viewer_static.dir/mouse.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/viewer/mouse.cpp
 viewer/CMakeFiles/viewer_static.dir/mouse.cpp.o: viewer/CMakeFiles/viewer_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object viewer/CMakeFiles/viewer_static.dir/mouse.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT viewer/CMakeFiles/viewer_static.dir/mouse.cpp.o -MF CMakeFiles/viewer_static.dir/mouse.cpp.o.d -o CMakeFiles/viewer_static.dir/mouse.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/mouse.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object viewer/CMakeFiles/viewer_static.dir/mouse.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT viewer/CMakeFiles/viewer_static.dir/mouse.cpp.o -MF CMakeFiles/viewer_static.dir/mouse.cpp.o.d -o CMakeFiles/viewer_static.dir/mouse.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/viewer/mouse.cpp
 
 viewer/CMakeFiles/viewer_static.dir/mouse.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/viewer_static.dir/mouse.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/mouse.cpp > CMakeFiles/viewer_static.dir/mouse.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/viewer/mouse.cpp > CMakeFiles/viewer_static.dir/mouse.cpp.i
 
 viewer/CMakeFiles/viewer_static.dir/mouse.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/viewer_static.dir/mouse.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/mouse.cpp -o CMakeFiles/viewer_static.dir/mouse.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/viewer/mouse.cpp -o CMakeFiles/viewer_static.dir/mouse.cpp.s
 
 viewer/CMakeFiles/viewer_static.dir/window.cpp.o: viewer/CMakeFiles/viewer_static.dir/flags.make
-viewer/CMakeFiles/viewer_static.dir/window.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/window.cpp
+viewer/CMakeFiles/viewer_static.dir/window.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/viewer/window.cpp
 viewer/CMakeFiles/viewer_static.dir/window.cpp.o: viewer/CMakeFiles/viewer_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object viewer/CMakeFiles/viewer_static.dir/window.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT viewer/CMakeFiles/viewer_static.dir/window.cpp.o -MF CMakeFiles/viewer_static.dir/window.cpp.o.d -o CMakeFiles/viewer_static.dir/window.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object viewer/CMakeFiles/viewer_static.dir/window.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT viewer/CMakeFiles/viewer_static.dir/window.cpp.o -MF CMakeFiles/viewer_static.dir/window.cpp.o.d -o CMakeFiles/viewer_static.dir/window.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/viewer/window.cpp
 
 viewer/CMakeFiles/viewer_static.dir/window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/viewer_static.dir/window.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/window.cpp > CMakeFiles/viewer_static.dir/window.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/viewer/window.cpp > CMakeFiles/viewer_static.dir/window.cpp.i
 
 viewer/CMakeFiles/viewer_static.dir/window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/viewer_static.dir/window.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer/window.cpp -o CMakeFiles/viewer_static.dir/window.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/viewer/window.cpp -o CMakeFiles/viewer_static.dir/window.cpp.s
 
 # Object files for target viewer_static
 viewer_static_OBJECTS = \
@@ -141,19 +141,19 @@ lib/libviewer_static.a: viewer/CMakeFiles/viewer_static.dir/mouse.cpp.o
 lib/libviewer_static.a: viewer/CMakeFiles/viewer_static.dir/window.cpp.o
 lib/libviewer_static.a: viewer/CMakeFiles/viewer_static.dir/build.make
 lib/libviewer_static.a: viewer/CMakeFiles/viewer_static.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library ../lib/libviewer_static.a"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && $(CMAKE_COMMAND) -P CMakeFiles/viewer_static.dir/cmake_clean_target.cmake
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/viewer_static.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library ../lib/libviewer_static.a"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && $(CMAKE_COMMAND) -P CMakeFiles/viewer_static.dir/cmake_clean_target.cmake
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/viewer_static.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 viewer/CMakeFiles/viewer_static.dir/build: lib/libviewer_static.a
 .PHONY : viewer/CMakeFiles/viewer_static.dir/build
 
 viewer/CMakeFiles/viewer_static.dir/clean:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer && $(CMAKE_COMMAND) -P CMakeFiles/viewer_static.dir/cmake_clean.cmake
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/viewer && $(CMAKE_COMMAND) -P CMakeFiles/viewer_static.dir/cmake_clean.cmake
 .PHONY : viewer/CMakeFiles/viewer_static.dir/clean
 
 viewer/CMakeFiles/viewer_static.dir/depend:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/viewer/CMakeFiles/viewer_static.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/juwal/other/numoptuibk/assignment1/src /home/juwal/other/numoptuibk/assignment1/src/viewer /home/juwal/other/numoptuibk/assignment1/src/build /home/juwal/other/numoptuibk/assignment1/src/build/viewer /home/juwal/other/numoptuibk/assignment1/src/build/viewer/CMakeFiles/viewer_static.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : viewer/CMakeFiles/viewer_static.dir/depend
 

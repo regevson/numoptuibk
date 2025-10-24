@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src
+CMAKE_SOURCE_DIR = /home/juwal/other/numoptuibk/assignment1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build
+CMAKE_BINARY_DIR = /home/juwal/other/numoptuibk/assignment1/src/build
 
 # Include any dependencies generated for this target.
 include external/glm/CMakeFiles/glm_static.dir/depend.make
@@ -70,18 +70,18 @@ include external/glm/CMakeFiles/glm_static.dir/progress.make
 include external/glm/CMakeFiles/glm_static.dir/flags.make
 
 external/glm/CMakeFiles/glm_static.dir/detail/glm.cpp.o: external/glm/CMakeFiles/glm_static.dir/flags.make
-external/glm/CMakeFiles/glm_static.dir/detail/glm.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/glm/detail/glm.cpp
+external/glm/CMakeFiles/glm_static.dir/detail/glm.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/external/glm/detail/glm.cpp
 external/glm/CMakeFiles/glm_static.dir/detail/glm.cpp.o: external/glm/CMakeFiles/glm_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/glm/CMakeFiles/glm_static.dir/detail/glm.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/glm && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/glm/CMakeFiles/glm_static.dir/detail/glm.cpp.o -MF CMakeFiles/glm_static.dir/detail/glm.cpp.o.d -o CMakeFiles/glm_static.dir/detail/glm.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/glm/detail/glm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/glm/CMakeFiles/glm_static.dir/detail/glm.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/glm && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/glm/CMakeFiles/glm_static.dir/detail/glm.cpp.o -MF CMakeFiles/glm_static.dir/detail/glm.cpp.o.d -o CMakeFiles/glm_static.dir/detail/glm.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/external/glm/detail/glm.cpp
 
 external/glm/CMakeFiles/glm_static.dir/detail/glm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/glm_static.dir/detail/glm.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/glm && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/glm/detail/glm.cpp > CMakeFiles/glm_static.dir/detail/glm.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/glm && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/external/glm/detail/glm.cpp > CMakeFiles/glm_static.dir/detail/glm.cpp.i
 
 external/glm/CMakeFiles/glm_static.dir/detail/glm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/glm_static.dir/detail/glm.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/glm && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/glm/detail/glm.cpp -o CMakeFiles/glm_static.dir/detail/glm.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/glm && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/external/glm/detail/glm.cpp -o CMakeFiles/glm_static.dir/detail/glm.cpp.s
 
 # Object files for target glm_static
 glm_static_OBJECTS = \
@@ -93,19 +93,19 @@ glm_static_EXTERNAL_OBJECTS =
 lib/libglm_static.a: external/glm/CMakeFiles/glm_static.dir/detail/glm.cpp.o
 lib/libglm_static.a: external/glm/CMakeFiles/glm_static.dir/build.make
 lib/libglm_static.a: external/glm/CMakeFiles/glm_static.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ../../lib/libglm_static.a"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/glm && $(CMAKE_COMMAND) -P CMakeFiles/glm_static.dir/cmake_clean_target.cmake
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/glm && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glm_static.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ../../lib/libglm_static.a"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/glm && $(CMAKE_COMMAND) -P CMakeFiles/glm_static.dir/cmake_clean_target.cmake
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/glm && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glm_static.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 external/glm/CMakeFiles/glm_static.dir/build: lib/libglm_static.a
 .PHONY : external/glm/CMakeFiles/glm_static.dir/build
 
 external/glm/CMakeFiles/glm_static.dir/clean:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/glm && $(CMAKE_COMMAND) -P CMakeFiles/glm_static.dir/cmake_clean.cmake
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/glm && $(CMAKE_COMMAND) -P CMakeFiles/glm_static.dir/cmake_clean.cmake
 .PHONY : external/glm/CMakeFiles/glm_static.dir/clean
 
 external/glm/CMakeFiles/glm_static.dir/depend:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/glm /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/glm /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/glm/CMakeFiles/glm_static.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/juwal/other/numoptuibk/assignment1/src /home/juwal/other/numoptuibk/assignment1/src/external/glm /home/juwal/other/numoptuibk/assignment1/src/build /home/juwal/other/numoptuibk/assignment1/src/build/external/glm /home/juwal/other/numoptuibk/assignment1/src/build/external/glm/CMakeFiles/glm_static.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : external/glm/CMakeFiles/glm_static.dir/depend
 

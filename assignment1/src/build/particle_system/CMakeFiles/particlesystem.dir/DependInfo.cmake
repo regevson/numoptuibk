@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/particle_system/exercise.cpp" "particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o" "gcc" "particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o.d"
-  "/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/particle_system/particlesystem.cpp" "particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o" "gcc" "particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o.d"
+  "/home/juwal/other/numoptuibk/assignment1/src/particle_system/exercise.cpp" "particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o" "gcc" "particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o.d"
+  "/home/juwal/other/numoptuibk/assignment1/src/particle_system/particlesystem.cpp" "particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o" "gcc" "particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

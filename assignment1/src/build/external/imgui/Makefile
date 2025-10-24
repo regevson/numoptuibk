@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src
+CMAKE_SOURCE_DIR = /home/juwal/other/numoptuibk/assignment1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build
+CMAKE_BINARY_DIR = /home/juwal/other/numoptuibk/assignment1/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui//CMakeFiles/progress.marks
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 external/imgui/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles 0
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui//CMakeFiles/progress.marks
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 external/imgui/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 external/imgui/clean
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 external/imgui/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 external/imgui/preinstall
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 external/imgui/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 external/imgui/preinstall
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 external/imgui/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 external/imgui/CMakeFiles/imgui_static.dir/rule:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 external/imgui/CMakeFiles/imgui_static.dir/rule
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 external/imgui/CMakeFiles/imgui_static.dir/rule
 .PHONY : external/imgui/CMakeFiles/imgui_static.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ imgui_static: external/imgui/CMakeFiles/imgui_static.dir/rule
 
 # fast build rule for target.
 imgui_static/fast:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/build
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/build
 .PHONY : imgui_static/fast
 
 imgui.o: imgui.cpp.o
@@ -135,7 +135,7 @@ imgui.o: imgui.cpp.o
 
 # target to build an object file
 imgui.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.o
 .PHONY : imgui.cpp.o
 
 imgui.i: imgui.cpp.i
@@ -143,7 +143,7 @@ imgui.i: imgui.cpp.i
 
 # target to preprocess a source file
 imgui.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.i
 .PHONY : imgui.cpp.i
 
 imgui.s: imgui.cpp.s
@@ -151,7 +151,7 @@ imgui.s: imgui.cpp.s
 
 # target to generate assembly for a file
 imgui.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.s
 .PHONY : imgui.cpp.s
 
 imgui_demo.o: imgui_demo.cpp.o
@@ -159,7 +159,7 @@ imgui_demo.o: imgui_demo.cpp.o
 
 # target to build an object file
 imgui_demo.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.o
 .PHONY : imgui_demo.cpp.o
 
 imgui_demo.i: imgui_demo.cpp.i
@@ -167,7 +167,7 @@ imgui_demo.i: imgui_demo.cpp.i
 
 # target to preprocess a source file
 imgui_demo.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.i
 .PHONY : imgui_demo.cpp.i
 
 imgui_demo.s: imgui_demo.cpp.s
@@ -175,7 +175,7 @@ imgui_demo.s: imgui_demo.cpp.s
 
 # target to generate assembly for a file
 imgui_demo.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.s
 .PHONY : imgui_demo.cpp.s
 
 imgui_draw.o: imgui_draw.cpp.o
@@ -183,7 +183,7 @@ imgui_draw.o: imgui_draw.cpp.o
 
 # target to build an object file
 imgui_draw.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.o
 .PHONY : imgui_draw.cpp.o
 
 imgui_draw.i: imgui_draw.cpp.i
@@ -191,7 +191,7 @@ imgui_draw.i: imgui_draw.cpp.i
 
 # target to preprocess a source file
 imgui_draw.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.i
 .PHONY : imgui_draw.cpp.i
 
 imgui_draw.s: imgui_draw.cpp.s
@@ -199,7 +199,7 @@ imgui_draw.s: imgui_draw.cpp.s
 
 # target to generate assembly for a file
 imgui_draw.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.s
 .PHONY : imgui_draw.cpp.s
 
 imgui_stdlib.o: imgui_stdlib.cpp.o
@@ -207,7 +207,7 @@ imgui_stdlib.o: imgui_stdlib.cpp.o
 
 # target to build an object file
 imgui_stdlib.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o
 .PHONY : imgui_stdlib.cpp.o
 
 imgui_stdlib.i: imgui_stdlib.cpp.i
@@ -215,7 +215,7 @@ imgui_stdlib.i: imgui_stdlib.cpp.i
 
 # target to preprocess a source file
 imgui_stdlib.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.i
 .PHONY : imgui_stdlib.cpp.i
 
 imgui_stdlib.s: imgui_stdlib.cpp.s
@@ -223,7 +223,7 @@ imgui_stdlib.s: imgui_stdlib.cpp.s
 
 # target to generate assembly for a file
 imgui_stdlib.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.s
 .PHONY : imgui_stdlib.cpp.s
 
 imgui_tables.o: imgui_tables.cpp.o
@@ -231,7 +231,7 @@ imgui_tables.o: imgui_tables.cpp.o
 
 # target to build an object file
 imgui_tables.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.o
 .PHONY : imgui_tables.cpp.o
 
 imgui_tables.i: imgui_tables.cpp.i
@@ -239,7 +239,7 @@ imgui_tables.i: imgui_tables.cpp.i
 
 # target to preprocess a source file
 imgui_tables.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.i
 .PHONY : imgui_tables.cpp.i
 
 imgui_tables.s: imgui_tables.cpp.s
@@ -247,7 +247,7 @@ imgui_tables.s: imgui_tables.cpp.s
 
 # target to generate assembly for a file
 imgui_tables.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.s
 .PHONY : imgui_tables.cpp.s
 
 imgui_widgets.o: imgui_widgets.cpp.o
@@ -255,7 +255,7 @@ imgui_widgets.o: imgui_widgets.cpp.o
 
 # target to build an object file
 imgui_widgets.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o
 .PHONY : imgui_widgets.cpp.o
 
 imgui_widgets.i: imgui_widgets.cpp.i
@@ -263,7 +263,7 @@ imgui_widgets.i: imgui_widgets.cpp.i
 
 # target to preprocess a source file
 imgui_widgets.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.i
 .PHONY : imgui_widgets.cpp.i
 
 imgui_widgets.s: imgui_widgets.cpp.s
@@ -271,7 +271,7 @@ imgui_widgets.s: imgui_widgets.cpp.s
 
 # target to generate assembly for a file
 imgui_widgets.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.s
 .PHONY : imgui_widgets.cpp.s
 
 implot.o: implot.cpp.o
@@ -279,7 +279,7 @@ implot.o: implot.cpp.o
 
 # target to build an object file
 implot.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.o
 .PHONY : implot.cpp.o
 
 implot.i: implot.cpp.i
@@ -287,7 +287,7 @@ implot.i: implot.cpp.i
 
 # target to preprocess a source file
 implot.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.i
 .PHONY : implot.cpp.i
 
 implot.s: implot.cpp.s
@@ -295,7 +295,7 @@ implot.s: implot.cpp.s
 
 # target to generate assembly for a file
 implot.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.s
 .PHONY : implot.cpp.s
 
 implot_demo.o: implot_demo.cpp.o
@@ -303,7 +303,7 @@ implot_demo.o: implot_demo.cpp.o
 
 # target to build an object file
 implot_demo.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.o
 .PHONY : implot_demo.cpp.o
 
 implot_demo.i: implot_demo.cpp.i
@@ -311,7 +311,7 @@ implot_demo.i: implot_demo.cpp.i
 
 # target to preprocess a source file
 implot_demo.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.i
 .PHONY : implot_demo.cpp.i
 
 implot_demo.s: implot_demo.cpp.s
@@ -319,7 +319,7 @@ implot_demo.s: implot_demo.cpp.s
 
 # target to generate assembly for a file
 implot_demo.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.s
 .PHONY : implot_demo.cpp.s
 
 implot_items.o: implot_items.cpp.o
@@ -327,7 +327,7 @@ implot_items.o: implot_items.cpp.o
 
 # target to build an object file
 implot_items.cpp.o:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.o
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.o
 .PHONY : implot_items.cpp.o
 
 implot_items.i: implot_items.cpp.i
@@ -335,7 +335,7 @@ implot_items.i: implot_items.cpp.i
 
 # target to preprocess a source file
 implot_items.cpp.i:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.i
 .PHONY : implot_items.cpp.i
 
 implot_items.s: implot_items.cpp.s
@@ -343,7 +343,7 @@ implot_items.s: implot_items.cpp.s
 
 # target to generate assembly for a file
 implot_items.cpp.s:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(MAKE) $(MAKESILENT) -f external/imgui/CMakeFiles/imgui_static.dir/build.make external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.s
 .PHONY : implot_items.cpp.s
 
 # Help Target
@@ -393,6 +393,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

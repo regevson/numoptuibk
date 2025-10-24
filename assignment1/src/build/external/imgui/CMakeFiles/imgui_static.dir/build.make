@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src
+CMAKE_SOURCE_DIR = /home/juwal/other/numoptuibk/assignment1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build
+CMAKE_BINARY_DIR = /home/juwal/other/numoptuibk/assignment1/src/build
 
 # Include any dependencies generated for this target.
 include external/imgui/CMakeFiles/imgui_static.dir/depend.make
@@ -70,130 +70,130 @@ include external/imgui/CMakeFiles/imgui_static.dir/progress.make
 include external/imgui/CMakeFiles/imgui_static.dir/flags.make
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/flags.make
-external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui.cpp
+external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui.cpp
 external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.o -MF CMakeFiles/imgui_static.dir/imgui.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.o -MF CMakeFiles/imgui_static.dir/imgui.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui.cpp
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_static.dir/imgui.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui.cpp > CMakeFiles/imgui_static.dir/imgui.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui.cpp > CMakeFiles/imgui_static.dir/imgui.cpp.i
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_static.dir/imgui.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui.cpp -o CMakeFiles/imgui_static.dir/imgui.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui.cpp -o CMakeFiles/imgui_static.dir/imgui.cpp.s
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/flags.make
-external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_demo.cpp
+external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_demo.cpp
 external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.o -MF CMakeFiles/imgui_static.dir/imgui_demo.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui_demo.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_demo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.o -MF CMakeFiles/imgui_static.dir/imgui_demo.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui_demo.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_demo.cpp
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_static.dir/imgui_demo.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_demo.cpp > CMakeFiles/imgui_static.dir/imgui_demo.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_demo.cpp > CMakeFiles/imgui_static.dir/imgui_demo.cpp.i
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_demo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_static.dir/imgui_demo.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_demo.cpp -o CMakeFiles/imgui_static.dir/imgui_demo.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_demo.cpp -o CMakeFiles/imgui_static.dir/imgui_demo.cpp.s
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/flags.make
-external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_draw.cpp
+external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_draw.cpp
 external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.o -MF CMakeFiles/imgui_static.dir/imgui_draw.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui_draw.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_draw.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.o -MF CMakeFiles/imgui_static.dir/imgui_draw.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui_draw.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_draw.cpp
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_static.dir/imgui_draw.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_draw.cpp > CMakeFiles/imgui_static.dir/imgui_draw.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_draw.cpp > CMakeFiles/imgui_static.dir/imgui_draw.cpp.i
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_draw.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_static.dir/imgui_draw.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_draw.cpp -o CMakeFiles/imgui_static.dir/imgui_draw.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_draw.cpp -o CMakeFiles/imgui_static.dir/imgui_draw.cpp.s
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/flags.make
-external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_stdlib.cpp
+external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_stdlib.cpp
 external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o -MF CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_stdlib.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o -MF CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_stdlib.cpp
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_stdlib.cpp > CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_stdlib.cpp > CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.i
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_stdlib.cpp -o CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_stdlib.cpp -o CMakeFiles/imgui_static.dir/imgui_stdlib.cpp.s
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/flags.make
-external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_tables.cpp
+external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_tables.cpp
 external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.o -MF CMakeFiles/imgui_static.dir/imgui_tables.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui_tables.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_tables.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.o -MF CMakeFiles/imgui_static.dir/imgui_tables.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui_tables.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_tables.cpp
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_static.dir/imgui_tables.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_tables.cpp > CMakeFiles/imgui_static.dir/imgui_tables.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_tables.cpp > CMakeFiles/imgui_static.dir/imgui_tables.cpp.i
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_tables.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_static.dir/imgui_tables.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_tables.cpp -o CMakeFiles/imgui_static.dir/imgui_tables.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_tables.cpp -o CMakeFiles/imgui_static.dir/imgui_tables.cpp.s
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/flags.make
-external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_widgets.cpp
+external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_widgets.cpp
 external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o -MF CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_widgets.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o -MF CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o.d -o CMakeFiles/imgui_static.dir/imgui_widgets.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_widgets.cpp
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_static.dir/imgui_widgets.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_widgets.cpp > CMakeFiles/imgui_static.dir/imgui_widgets.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_widgets.cpp > CMakeFiles/imgui_static.dir/imgui_widgets.cpp.i
 
 external/imgui/CMakeFiles/imgui_static.dir/imgui_widgets.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_static.dir/imgui_widgets.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/imgui_widgets.cpp -o CMakeFiles/imgui_static.dir/imgui_widgets.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/external/imgui/imgui_widgets.cpp -o CMakeFiles/imgui_static.dir/imgui_widgets.cpp.s
 
 external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/flags.make
-external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot.cpp
+external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot.cpp
 external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.o -MF CMakeFiles/imgui_static.dir/implot.cpp.o.d -o CMakeFiles/imgui_static.dir/implot.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.o -MF CMakeFiles/imgui_static.dir/implot.cpp.o.d -o CMakeFiles/imgui_static.dir/implot.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot.cpp
 
 external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_static.dir/implot.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot.cpp > CMakeFiles/imgui_static.dir/implot.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot.cpp > CMakeFiles/imgui_static.dir/implot.cpp.i
 
 external/imgui/CMakeFiles/imgui_static.dir/implot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_static.dir/implot.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot.cpp -o CMakeFiles/imgui_static.dir/implot.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot.cpp -o CMakeFiles/imgui_static.dir/implot.cpp.s
 
 external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/flags.make
-external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot_items.cpp
+external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot_items.cpp
 external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.o -MF CMakeFiles/imgui_static.dir/implot_items.cpp.o.d -o CMakeFiles/imgui_static.dir/implot_items.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot_items.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.o -MF CMakeFiles/imgui_static.dir/implot_items.cpp.o.d -o CMakeFiles/imgui_static.dir/implot_items.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot_items.cpp
 
 external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_static.dir/implot_items.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot_items.cpp > CMakeFiles/imgui_static.dir/implot_items.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot_items.cpp > CMakeFiles/imgui_static.dir/implot_items.cpp.i
 
 external/imgui/CMakeFiles/imgui_static.dir/implot_items.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_static.dir/implot_items.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot_items.cpp -o CMakeFiles/imgui_static.dir/implot_items.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot_items.cpp -o CMakeFiles/imgui_static.dir/implot_items.cpp.s
 
 external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/flags.make
-external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot_demo.cpp
+external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot_demo.cpp
 external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.o: external/imgui/CMakeFiles/imgui_static.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.o -MF CMakeFiles/imgui_static.dir/implot_demo.cpp.o.d -o CMakeFiles/imgui_static.dir/implot_demo.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot_demo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.o -MF CMakeFiles/imgui_static.dir/implot_demo.cpp.o.d -o CMakeFiles/imgui_static.dir/implot_demo.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot_demo.cpp
 
 external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_static.dir/implot_demo.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot_demo.cpp > CMakeFiles/imgui_static.dir/implot_demo.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot_demo.cpp > CMakeFiles/imgui_static.dir/implot_demo.cpp.i
 
 external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_static.dir/implot_demo.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/implot_demo.cpp -o CMakeFiles/imgui_static.dir/implot_demo.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/external/imgui/implot_demo.cpp -o CMakeFiles/imgui_static.dir/implot_demo.cpp.s
 
 # Object files for target imgui_static
 imgui_static_OBJECTS = \
@@ -221,19 +221,19 @@ lib/libimgui_static.a: external/imgui/CMakeFiles/imgui_static.dir/implot_items.c
 lib/libimgui_static.a: external/imgui/CMakeFiles/imgui_static.dir/implot_demo.cpp.o
 lib/libimgui_static.a: external/imgui/CMakeFiles/imgui_static.dir/build.make
 lib/libimgui_static.a: external/imgui/CMakeFiles/imgui_static.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library ../../lib/libimgui_static.a"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && $(CMAKE_COMMAND) -P CMakeFiles/imgui_static.dir/cmake_clean_target.cmake
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imgui_static.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library ../../lib/libimgui_static.a"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && $(CMAKE_COMMAND) -P CMakeFiles/imgui_static.dir/cmake_clean_target.cmake
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/imgui_static.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 external/imgui/CMakeFiles/imgui_static.dir/build: lib/libimgui_static.a
 .PHONY : external/imgui/CMakeFiles/imgui_static.dir/build
 
 external/imgui/CMakeFiles/imgui_static.dir/clean:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui && $(CMAKE_COMMAND) -P CMakeFiles/imgui_static.dir/cmake_clean.cmake
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui && $(CMAKE_COMMAND) -P CMakeFiles/imgui_static.dir/cmake_clean.cmake
 .PHONY : external/imgui/CMakeFiles/imgui_static.dir/clean
 
 external/imgui/CMakeFiles/imgui_static.dir/depend:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/external/imgui/CMakeFiles/imgui_static.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/juwal/other/numoptuibk/assignment1/src /home/juwal/other/numoptuibk/assignment1/src/external/imgui /home/juwal/other/numoptuibk/assignment1/src/build /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui /home/juwal/other/numoptuibk/assignment1/src/build/external/imgui/CMakeFiles/imgui_static.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : external/imgui/CMakeFiles/imgui_static.dir/depend
 

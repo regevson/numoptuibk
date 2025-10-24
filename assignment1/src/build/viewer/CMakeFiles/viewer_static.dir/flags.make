@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/viewer -I/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/glfw/include -I/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external -I/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/glm/.. -I/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/..
+CXX_INCLUDES = -I/home/juwal/other/numoptuibk/assignment1/src/viewer -I/home/juwal/other/numoptuibk/assignment1/src/external/glfw/include -I/home/juwal/other/numoptuibk/assignment1/src/external -I/home/juwal/other/numoptuibk/assignment1/src/external/glm/.. -I/home/juwal/other/numoptuibk/assignment1/src/external/imgui/..
 
-CXX_FLAGS = -O3 -DNDEBUG -Wall -O3
+CXX_FLAGS = 
 

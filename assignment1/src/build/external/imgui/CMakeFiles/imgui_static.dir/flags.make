@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/external/imgui/..
+CXX_INCLUDES = -I/home/juwal/other/numoptuibk/assignment1/src/external/imgui/..
 
-CXX_FLAGS = -O3 -DNDEBUG  -w -Wall -O3
+CXX_FLAGS =  -w
 

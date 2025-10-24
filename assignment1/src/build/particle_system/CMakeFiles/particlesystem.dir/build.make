@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src
+CMAKE_SOURCE_DIR = /home/juwal/other/numoptuibk/assignment1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build
+CMAKE_BINARY_DIR = /home/juwal/other/numoptuibk/assignment1/src/build
 
 # Include any dependencies generated for this target.
 include particle_system/CMakeFiles/particlesystem.dir/depend.make
@@ -70,32 +70,32 @@ include particle_system/CMakeFiles/particlesystem.dir/progress.make
 include particle_system/CMakeFiles/particlesystem.dir/flags.make
 
 particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o: particle_system/CMakeFiles/particlesystem.dir/flags.make
-particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/particle_system/exercise.cpp
+particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/particle_system/exercise.cpp
 particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o: particle_system/CMakeFiles/particlesystem.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o -MF CMakeFiles/particlesystem.dir/exercise.cpp.o.d -o CMakeFiles/particlesystem.dir/exercise.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/particle_system/exercise.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.o -MF CMakeFiles/particlesystem.dir/exercise.cpp.o.d -o CMakeFiles/particlesystem.dir/exercise.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/particle_system/exercise.cpp
 
 particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/particlesystem.dir/exercise.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/particle_system/exercise.cpp > CMakeFiles/particlesystem.dir/exercise.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/particle_system/exercise.cpp > CMakeFiles/particlesystem.dir/exercise.cpp.i
 
 particle_system/CMakeFiles/particlesystem.dir/exercise.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/particlesystem.dir/exercise.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/particle_system/exercise.cpp -o CMakeFiles/particlesystem.dir/exercise.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/particle_system/exercise.cpp -o CMakeFiles/particlesystem.dir/exercise.cpp.s
 
 particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o: particle_system/CMakeFiles/particlesystem.dir/flags.make
-particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o: /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/particle_system/particlesystem.cpp
+particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o: /home/juwal/other/numoptuibk/assignment1/src/particle_system/particlesystem.cpp
 particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o: particle_system/CMakeFiles/particlesystem.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o -MF CMakeFiles/particlesystem.dir/particlesystem.cpp.o.d -o CMakeFiles/particlesystem.dir/particlesystem.cpp.o -c /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/particle_system/particlesystem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.o -MF CMakeFiles/particlesystem.dir/particlesystem.cpp.o.d -o CMakeFiles/particlesystem.dir/particlesystem.cpp.o -c /home/juwal/other/numoptuibk/assignment1/src/particle_system/particlesystem.cpp
 
 particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/particlesystem.dir/particlesystem.cpp.i"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/particle_system/particlesystem.cpp > CMakeFiles/particlesystem.dir/particlesystem.cpp.i
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/juwal/other/numoptuibk/assignment1/src/particle_system/particlesystem.cpp > CMakeFiles/particlesystem.dir/particlesystem.cpp.i
 
 particle_system/CMakeFiles/particlesystem.dir/particlesystem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/particlesystem.dir/particlesystem.cpp.s"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/particle_system/particlesystem.cpp -o CMakeFiles/particlesystem.dir/particlesystem.cpp.s
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/particle_system && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/juwal/other/numoptuibk/assignment1/src/particle_system/particlesystem.cpp -o CMakeFiles/particlesystem.dir/particlesystem.cpp.s
 
 # Object files for target particlesystem
 particlesystem_OBJECTS = \
@@ -117,18 +117,18 @@ bin/particlesystem: /usr/lib/x86_64-linux-gnu/libX11.so
 bin/particlesystem: lib/libglm_static.a
 bin/particlesystem: lib/libimgui_static.a
 bin/particlesystem: particle_system/CMakeFiles/particlesystem.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../bin/particlesystem"
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/particle_system && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/particlesystem.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/juwal/other/numoptuibk/assignment1/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../bin/particlesystem"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/particle_system && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/particlesystem.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 particle_system/CMakeFiles/particlesystem.dir/build: bin/particlesystem
 .PHONY : particle_system/CMakeFiles/particlesystem.dir/build
 
 particle_system/CMakeFiles/particlesystem.dir/clean:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/particle_system && $(CMAKE_COMMAND) -P CMakeFiles/particlesystem.dir/cmake_clean.cmake
+	cd /home/juwal/other/numoptuibk/assignment1/src/build/particle_system && $(CMAKE_COMMAND) -P CMakeFiles/particlesystem.dir/cmake_clean.cmake
 .PHONY : particle_system/CMakeFiles/particlesystem.dir/clean
 
 particle_system/CMakeFiles/particlesystem.dir/depend:
-	cd /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/particle_system /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/particle_system /home/juwal/cs/Master/1_semester/Optimization_Numerical_Calculation/PS/ass1/src/build/particle_system/CMakeFiles/particlesystem.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/juwal/other/numoptuibk/assignment1/src/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/juwal/other/numoptuibk/assignment1/src /home/juwal/other/numoptuibk/assignment1/src/particle_system /home/juwal/other/numoptuibk/assignment1/src/build /home/juwal/other/numoptuibk/assignment1/src/build/particle_system /home/juwal/other/numoptuibk/assignment1/src/build/particle_system/CMakeFiles/particlesystem.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : particle_system/CMakeFiles/particlesystem.dir/depend
 
