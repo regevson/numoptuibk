@@ -1,0 +1,52 @@
+# Root .gitignore derived from src/.gitignore
+
+# Build directories and generated files (scoped to src/)
+/src/build/
+/src/bin/
+/src/CMakeFiles/
+/src/CMakeCache.txt
+/src/cmake_install.cmake
+/src/Makefile
+/src/compile_commands.json
+
+# Also ignore common top-level build dirs if present
+/build/
+/bin/
+
+# Static and shared libs, object files
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.dll
+*.exe
+
+# Editor and IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*~
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Packages
+*.tar.gz
+*.zip
+
+# Python caches
+__pycache__/
+
+# User-specific files
+*.user
+
+# Ignore ImGui config file inside src
+/src/imgui.ini
