@@ -112,9 +112,13 @@ void computeTimeStep(float dt,
 
 
 float computeKineticEnergy(const ParticleSystem& sim)
-{
-    // -- HERE: compute kinetic energy
-    return 0.0f;
+{      
+    double kineticEnergy = 0.0;
+    for (const Point& point: sim.points) {
+        kineticEnergy += 0.5 * point.mass * glm::length2(point.velocity * point.velocity);
+    }
+
+    return kineticEnergy;
 }
 
 float computePotentialEnergy(const ParticleSystem& sim)
