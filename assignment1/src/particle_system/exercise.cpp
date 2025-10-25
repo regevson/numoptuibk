@@ -84,8 +84,14 @@ void computeTimeStep(float dt,
 
         case ParticleSystem::eMethod::EX_SYMPLECTIC:
         {
-            // -- HERE: update points call updateExtForces() to update forces
-            break;
+            updateExtForces(points, extForces, tree);
+            for (Point& point: points) {
+                // Update velocity first based on a = F / m
+                point.velocity += dt * (point.force / point.mass);
+
+                // Update position based on the *new* velocity
+                point.position += dt * point.velocity;
+            }
         }
 
         case ParticleSystem::eMethod::EX_VERLET:
