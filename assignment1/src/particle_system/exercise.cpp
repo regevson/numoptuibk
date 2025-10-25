@@ -123,9 +123,13 @@ float computeKineticEnergy(const ParticleSystem& sim)
 
 float computePotentialEnergy(const ParticleSystem& sim)
 {
-    // -- HERE: compute kinetic energy
+    const double groundLevel = -1.5;
+    double potentialEnergy = 0.0;
+    for (const Point& point: sim.points) {
+        potentialEnergy += sim.extForces.gravity * point.mass * (point.position[1] - groundLevel);
+    }
 
-    return 0.0f;
+    return potentialEnergy;
 }
 
 vec2 angleToVec2(float ang)
