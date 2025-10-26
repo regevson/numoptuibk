@@ -59,6 +59,12 @@ void updateExtForces(vector<Point>& points, const ExternalForces& eF, const shar
     }
 }
 
+glm::vec2 getDampedAcceleration(const Point& point) {
+    // a = Force / mass
+    // scaled by: dampening_factor / mass
+    return (point.force - point.velocity * point.damping) / point.mass;
+}
+
 void computeTimeStep(float dt, 
     ParticleSystem::eMethod method, 
     vector<Point> &points, 
@@ -80,7 +86,7 @@ void computeTimeStep(float dt,
                 point.position += dt * point.velocity;
 
                 // Update velocity based on a = F / m
-                point.velocity += dt * (point.force / point.mass);
+                point.velocity += dt * getDampedAcceleration(point);
             }
         }
 
@@ -89,7 +95,7 @@ void computeTimeStep(float dt,
             updateExtForces(points, extForces, tree);
             for (Point& point: points) {
                 // Update velocity first based on a = F / m
-                point.velocity += dt * (point.force / point.mass);
+                point.velocity += dt * getDampedAcceleration(point);
 
                 // Update position based on the *new* velocity
                 point.position += dt * point.velocity;
@@ -116,7 +122,7 @@ void computeTimeStep(float dt,
 
                 // k_1 & l_1
                 k[0] = vel_org;
-                l[0] = point.force / point.mass;
+                l[0] = getDampedAcceleration(point);
                 
                 for (int i = 1; i < 4; i++) {
                     // k_n; then compute l_n based on new position and velocity
@@ -124,7 +130,7 @@ void computeTimeStep(float dt,
                     point.velocity = k[i];
                     point.position = pos_org + (dt*0.5f) * k[i-1];
                     updateExtForces(tmp_vec, extForces, tree);
-                    l[i] = point.force / point.mass;
+                    l[i] = getDampedAcceleration(point);
                 }
 
                 // final update of position and velocity
