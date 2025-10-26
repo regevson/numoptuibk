@@ -30,7 +30,31 @@ float posDampedStokes(float t, float x0, float v0, float acc, float kappa_m)
 
 void updateExtForces(vector<Point>& points, const ExternalForces& eF, const shared_ptr<OcTreeStd<size_t, glm::vec2, 2>>& tree )
 {
-    // -- HERE: update points[i].force
+    const double stiffnessPenaltyK = 10000.0;
+    const double yGround = -1.5;
+
+    const glm::vec2 zeroPoint = glm::vec2(0.0,0.0);
+
+    for (Point& point: points) {
+        // Skip fixed points
+        if (point.fixed) continue;
+        
+        glm::vec2 force = glm::vec2(0.0, 0.0);
+
+        // Universal Gravity
+        force += ((eF.centerGravity * point.mass) / glm::distance2(zeroPoint, point.position)) * glm::normalize(zeroPoint-point.position);
+        // Uniform Gravity 
+        force += glm::vec2(0.0, -eF.gravity * point.mass);
+        // Wind
+        force += eF.wind;
+        // Collision Force (Ground)
+        if (point.position[1] < yGround) {
+            force += glm::vec2(0.0, stiffnessPenaltyK * (yGround-point.position[1]));
+        }
+
+        // Update point's force
+        point.force = force;
+    }
 }
 
 void computeTimeStep(float dt, 
@@ -48,13 +72,26 @@ void computeTimeStep(float dt,
         case ParticleSystem::eMethod::EX_EULER:
         {
             // -- HERE: update points call updateExtForces() to update forces
-            break;
+            updateExtForces(points, extForces, tree);
+            for (Point& point: points) {
+                // Update position based on *current* velocity
+                point.position += dt * point.velocity;
+
+                // Update velocity based on a = F / m
+                point.velocity += dt * (point.force / point.mass);
+            }
         }
 
         case ParticleSystem::eMethod::EX_SYMPLECTIC:
         {
-            // -- HERE: update points call updateExtForces() to update forces
-            break;
+            updateExtForces(points, extForces, tree);
+            for (Point& point: points) {
+                // Update velocity first based on a = F / m
+                point.velocity += dt * (point.force / point.mass);
+
+                // Update position based on the *new* velocity
+                point.position += dt * point.velocity;
+            }
         }
 
         case ParticleSystem::eMethod::EX_VERLET:
@@ -75,16 +112,24 @@ void computeTimeStep(float dt,
 
 
 float computeKineticEnergy(const ParticleSystem& sim)
-{
-    // -- HERE: compute kinetic energy
-    return 0.0f;
+{      
+    double kineticEnergy = 0.0;
+    for (const Point& point: sim.points) {
+        kineticEnergy += 0.5 * point.mass * glm::length2(point.velocity * point.velocity);
+    }
+
+    return kineticEnergy;
 }
 
 float computePotentialEnergy(const ParticleSystem& sim)
 {
-    // -- HERE: compute kinetic energy
+    const double groundLevel = -1.5;
+    double potentialEnergy = 0.0;
+    for (const Point& point: sim.points) {
+        potentialEnergy += sim.extForces.gravity * point.mass * (point.position[1] - groundLevel);
+    }
 
-    return 0.0f;
+    return potentialEnergy;
 }
 
 vec2 angleToVec2(float ang)
