@@ -4,6 +4,7 @@
 #include <fstream>
 #include <algorithm>
 
+#include "glm/fwd.hpp"
 #include "particlesystem.h"
 #include "scene.h"
 
@@ -102,7 +103,42 @@ void computeTimeStep(float dt,
         
         case ParticleSystem::eMethod::EX_RUNGE4:
         {
-            // -- HERE: update points call updateExtForces() to update forces
+            updateExtForces(points, extForces, tree);
+            for (Point& point: points) {
+                std::vector<Point> tmp_vec = {point};
+
+                glm::vec2 vel_org = point.velocity;
+                glm::vec2 pos_org = point.position;
+
+                // k1 & l1
+                glm::vec2 k1 = vel_org;
+                glm::vec2 l1 = point.force / point.mass;
+                
+                // k2; then compute l2 based on new position and velocity
+                glm::vec2 k2 = vel_org + (dt*0.5f) * l1;;
+                point.velocity = k2;
+                point.position = pos_org + (dt*0.5f) * k1;
+                updateExtForces(tmp_vec, extForces, tree);
+                glm::vec2 l2 = point.force / point.mass;
+
+                // k3; then compute l3 based on new position and velocity
+                glm::vec2 k3 = vel_org + (dt*0.5f) * l2;
+                point.velocity = k3;
+                point.position = pos_org + (dt*0.5f) * k2;
+                updateExtForces(tmp_vec, extForces, tree);
+                glm::vec2 l3 = point.force / point.mass;
+
+                // k4; then compute l4 based on new position and velocity
+                glm::vec2 k4 = vel_org + dt * l3;
+                point.velocity = k4;
+                point.position = pos_org + dt*k3;
+                updateExtForces(tmp_vec, extForces, tree);
+                glm::vec2 l4 = point.force / point.mass;
+
+                // final update of position and velocity
+                point.velocity = vel_org + dt/6.0f * (l1 + 2.0f*l2 + 2.0f*l3 + l4);
+                point.position = pos_org + dt/6.0f * (k1 + 2.0f*k2 + 2.0f*k3 + k4);
+            }
         }
         
         count++;
