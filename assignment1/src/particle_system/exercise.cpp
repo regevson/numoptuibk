@@ -43,14 +43,16 @@ void updateExtForces(vector<Point>& points, const ExternalForces& eF, const shar
         
         glm::vec2 force = glm::vec2(0.0, 0.0);
 
-        // Universal Gravity
-        force += ((eF.centerGravity * point.mass) / glm::distance2(zeroPoint, point.position)) * glm::normalize(zeroPoint-point.position);
-        // Uniform Gravity 
-        force += glm::vec2(0.0, -eF.gravity * point.mass);
+        if (eF.enableGravity) {
+            // Universal Gravity
+            force += ((eF.centerGravity * point.mass) / glm::distance2(zeroPoint, point.position)) * glm::normalize(zeroPoint-point.position);
+            // Uniform Gravity 
+            force += glm::vec2(0.0, -eF.gravity * point.mass);
+        }
         // Wind
         force += eF.wind;
         // Collision Force (Ground)
-        if (point.position[1] < yGround) {
+        if (eF.enableGround && point.position[1] < yGround) {
             force += glm::vec2(0.0, stiffnessPenaltyK * (yGround-point.position[1]));
         }
 
