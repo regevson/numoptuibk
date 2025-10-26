@@ -1,5 +1,6 @@
 #include <stdlib.h>
 
+#include <vector>
 #include <viewer.h>
 #include <fstream>
 #include <algorithm>
@@ -107,37 +108,28 @@ void computeTimeStep(float dt,
             for (Point& point: points) {
                 std::vector<Point> tmp_vec = {point};
 
+                vector<glm::vec2> k(4);
+                vector<glm::vec2> l(4);
+
                 glm::vec2 vel_org = point.velocity;
                 glm::vec2 pos_org = point.position;
 
-                // k1 & l1
-                glm::vec2 k1 = vel_org;
-                glm::vec2 l1 = point.force / point.mass;
+                // k_1 & l_1
+                k[0] = vel_org;
+                l[0] = point.force / point.mass;
                 
-                // k2; then compute l2 based on new position and velocity
-                glm::vec2 k2 = vel_org + (dt*0.5f) * l1;;
-                point.velocity = k2;
-                point.position = pos_org + (dt*0.5f) * k1;
-                updateExtForces(tmp_vec, extForces, tree);
-                glm::vec2 l2 = point.force / point.mass;
-
-                // k3; then compute l3 based on new position and velocity
-                glm::vec2 k3 = vel_org + (dt*0.5f) * l2;
-                point.velocity = k3;
-                point.position = pos_org + (dt*0.5f) * k2;
-                updateExtForces(tmp_vec, extForces, tree);
-                glm::vec2 l3 = point.force / point.mass;
-
-                // k4; then compute l4 based on new position and velocity
-                glm::vec2 k4 = vel_org + dt * l3;
-                point.velocity = k4;
-                point.position = pos_org + dt*k3;
-                updateExtForces(tmp_vec, extForces, tree);
-                glm::vec2 l4 = point.force / point.mass;
+                for (int i = 1; i < 4; i++) {
+                    // k_n; then compute l_n based on new position and velocity
+                    k[i] = vel_org + (dt*0.5f) * l[i-1];
+                    point.velocity = k[i];
+                    point.position = pos_org + (dt*0.5f) * k[i-1];
+                    updateExtForces(tmp_vec, extForces, tree);
+                    l[i] = point.force / point.mass;
+                }
 
                 // final update of position and velocity
-                point.velocity = vel_org + dt/6.0f * (l1 + 2.0f*l2 + 2.0f*l3 + l4);
-                point.position = pos_org + dt/6.0f * (k1 + 2.0f*k2 + 2.0f*k3 + k4);
+                point.velocity = vel_org + dt/6.0f * (l[0] + 2.0f*l[1] + 2.0f*l[2] + l[3]);
+                point.position = pos_org + dt/6.0f * (k[0] + 2.0f*k[1] + 2.0f*k[2] + k[3]);
             }
         }
         
