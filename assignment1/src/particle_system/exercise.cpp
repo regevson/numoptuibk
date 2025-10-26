@@ -31,29 +31,29 @@ float posDampedStokes(float t, float x0, float v0, float acc, float kappa_m)
 
 
 void updateExtForces(vector<Point>& points, const ExternalForces& eF, const shared_ptr<OcTreeStd<size_t, glm::vec2, 2>>& tree )
-{
-    const double stiffnessPenaltyK = 10000.0;
-    const double yGround = -1.5;
+{   
+    const float stiffnessPenaltyK = 10000.0f;
+    const float yGround = -1.5f;
 
-    const glm::vec2 zeroPoint = glm::vec2(0.0,0.0);
+    const glm::vec2 zeroPoint = glm::vec2(0.0f,0.0f);
 
     for (Point& point: points) {
         // Skip fixed points
         if (point.fixed) continue;
         
-        glm::vec2 force = glm::vec2(0.0, 0.0);
+        glm::vec2 force = glm::vec2(0.0f, 0.0f);
 
         if (eF.enableGravity) {
             // Universal Gravity
             force += ((eF.centerGravity * point.mass) / glm::distance2(zeroPoint, point.position)) * glm::normalize(zeroPoint-point.position);
             // Uniform Gravity 
-            force += glm::vec2(0.0, -eF.gravity * point.mass);
+            force += glm::vec2(0.0f, -eF.gravity * point.mass);
         }
         // Wind
         force += eF.wind;
         // Collision Force (Ground)
         if (eF.enableGround && point.position[1] < yGround) {
-            force += glm::vec2(0.0, stiffnessPenaltyK * (yGround-point.position[1]));
+            force += glm::vec2(0.0f, stiffnessPenaltyK * (yGround-point.position[1]));
         }
 
         // Update point's force
@@ -148,9 +148,9 @@ void computeTimeStep(float dt,
 
 float computeKineticEnergy(const ParticleSystem& sim)
 {      
-    double kineticEnergy = 0.0;
+    double kineticEnergy = 0.0f;
     for (const Point& point: sim.points) {
-        kineticEnergy += 0.5 * point.mass * glm::length2(point.velocity * point.velocity);
+        kineticEnergy += 0.5f * point.mass * glm::length2(point.velocity * point.velocity);
     }
 
     return kineticEnergy;
@@ -158,8 +158,8 @@ float computeKineticEnergy(const ParticleSystem& sim)
 
 float computePotentialEnergy(const ParticleSystem& sim)
 {
-    const double groundLevel = -1.5;
-    double potentialEnergy = 0.0;
+    const double groundLevel = -1.5f;
+    double potentialEnergy = 0.0f;
     for (const Point& point: sim.points) {
         potentialEnergy += sim.extForces.gravity * point.mass * (point.position[1] - groundLevel);
     }
