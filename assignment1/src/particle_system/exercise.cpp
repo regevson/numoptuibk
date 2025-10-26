@@ -62,8 +62,7 @@ void updateExtForces(vector<Point>& points, const ExternalForces& eF, const shar
 }
 
 glm::vec2 getDampedAcceleration(const Point& point) {
-    // a = Force / mass
-    // scaled by: dampening_factor / mass
+    // a = Force / mass; add viscous dampening
     return (point.force - point.velocity * point.damping) / point.mass;
 }
 
