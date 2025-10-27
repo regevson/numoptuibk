@@ -147,10 +147,12 @@ void computeTimeStep(float dt,
                 
                 for (int i = 1; i < 4; i++) {
                     // k_n; then compute l_n based on new position and velocity
-                    k[i] = vel_org + (dt*0.5f) * l[i-1];
+                    float step_size = (i==3) ? dt : dt*0.5f;
+                    k[i] = vel_org + step_size * l[i-1];
                     point.velocity = k[i];
-                    point.position = pos_org + (dt*0.5f) * k[i-1];
+                    point.position = pos_org + step_size * k[i-1];
                     updateExtForces(tmp_vec, extForces, tree);
+                    point.force = tmp_vec[0].force;
                     l[i] = getDampedAcceleration(point);
                 }
 
