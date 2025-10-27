@@ -107,6 +107,7 @@ void computeTimeStep(float dt,
 
         case ParticleSystem::eMethod::EX_VERLET:
         {   
+            // copy points to assign to `oldPoints` later
             vector<Point> currentPoints = points;
             updateExtForces(points, extForces, tree);
 
@@ -126,9 +127,9 @@ void computeTimeStep(float dt,
                     point.velocity = (point.position-oldPoints[i].position) / dt;
                     point.position = 2.0f*point.position - oldPoints[i].position + dt * dt * getDampedAcceleration(point);
                 }
-                break;
             }
             oldPoints = currentPoints;
+            break;
         }
         
         case ParticleSystem::eMethod::EX_RUNGE4:
@@ -159,8 +160,8 @@ void computeTimeStep(float dt,
                 // final update of position and velocity
                 point.velocity = vel_org + dt/6.0f * (l[0] + 2.0f*l[1] + 2.0f*l[2] + l[3]);
                 point.position = pos_org + dt/6.0f * (k[0] + 2.0f*k[1] + 2.0f*k[2] + k[3]);
-                break;
             }
+            break;
         }
         
         count++;
