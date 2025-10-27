@@ -1,9 +1,11 @@
 #include <stdlib.h>
 
+#include <vector>
 #include <viewer.h>
 #include <fstream>
 #include <algorithm>
 
+#include "glm/fwd.hpp"
 #include "particlesystem.h"
 #include "scene.h"
 
@@ -29,32 +31,39 @@ float posDampedStokes(float t, float x0, float v0, float acc, float kappa_m)
 
 
 void updateExtForces(vector<Point>& points, const ExternalForces& eF, const shared_ptr<OcTreeStd<size_t, glm::vec2, 2>>& tree )
-{
-    const double stiffnessPenaltyK = 10000.0;
-    const double yGround = -1.5;
+{   
+    const float stiffnessPenaltyK = 10000.0f;
+    const float yGround = -1.5f;
 
-    const glm::vec2 zeroPoint = glm::vec2(0.0,0.0);
+    const glm::vec2 zeroPoint = glm::vec2(0.0f,0.0f);
 
     for (Point& point: points) {
         // Skip fixed points
         if (point.fixed) continue;
         
-        glm::vec2 force = glm::vec2(0.0, 0.0);
+        glm::vec2 force = glm::vec2(0.0f, 0.0f);
 
-        // Universal Gravity
-        force += ((eF.centerGravity * point.mass) / glm::distance2(zeroPoint, point.position)) * glm::normalize(zeroPoint-point.position);
-        // Uniform Gravity 
-        force += glm::vec2(0.0, -eF.gravity * point.mass);
+        if (eF.enableGravity) {
+            // Universal Gravity
+            force += ((eF.centerGravity * point.mass) / glm::distance2(zeroPoint, point.position)) * glm::normalize(zeroPoint-point.position);
+            // Uniform Gravity 
+            force += glm::vec2(0.0f, -eF.gravity * point.mass);
+        }
         // Wind
         force += eF.wind;
         // Collision Force (Ground)
-        if (point.position[1] < yGround) {
-            force += glm::vec2(0.0, stiffnessPenaltyK * (yGround-point.position[1]));
+        if (eF.enableGround && point.position[1] < yGround) {
+            force += glm::vec2(0.0f, stiffnessPenaltyK * (yGround-point.position[1]));
         }
 
         // Update point's force
         point.force = force;
     }
+}
+
+glm::vec2 getDampedAcceleration(const Point& point) {
+    // a = Force / mass; add viscous dampening
+    return (point.force - point.velocity * point.damping) / point.mass;
 }
 
 void computeTimeStep(float dt, 
@@ -78,8 +87,9 @@ void computeTimeStep(float dt,
                 point.position += dt * point.velocity;
 
                 // Update velocity based on a = F / m
-                point.velocity += dt * (point.force / point.mass);
+                point.velocity += dt * getDampedAcceleration(point);
             }
+            break;
         }
 
         case ParticleSystem::eMethod::EX_SYMPLECTIC:
@@ -87,24 +97,73 @@ void computeTimeStep(float dt,
             updateExtForces(points, extForces, tree);
             for (Point& point: points) {
                 // Update velocity first based on a = F / m
-                point.velocity += dt * (point.force / point.mass);
+                point.velocity += dt * getDampedAcceleration(point);
 
                 // Update position based on the *new* velocity
                 point.position += dt * point.velocity;
             }
+            break;
         }
 
         case ParticleSystem::eMethod::EX_VERLET:
-        {
-            // -- HERE: update points call updateExtForces() to update forces
+        {   
+            // copy points to assign to `oldPoints` later
+            vector<Point> currentPoints = points;
+            updateExtForces(points, extForces, tree);
+
+            for (int i = 0; i < points.size(); i++) {
+                Point& point = points[i];
+                if (i >= oldPoints.size()) {
+                    // This point has just been initialized.
+                    point.position += dt * point.velocity;
+                    // point.velocity   = (point.position - oldPoint.position) / dt 
+                    //                  = (point.position - point.position + dt * point.velocity) / dt 
+                    //                  = point.velocity
+                } else {
+                    // Point has already been initialized and updated at least once.
+                    point.velocity = (point.position-oldPoints[i].position) / dt;
+                    point.position = 2.0f*point.position - oldPoints[i].position + dt * dt * getDampedAcceleration(point);
+                }
+            }
+            oldPoints = currentPoints;
             break;
         }
         
         case ParticleSystem::eMethod::EX_RUNGE4:
         {
-            // -- HERE: update points call updateExtForces() to update forces
+            updateExtForces(points, extForces, tree);
+            for (Point& point: points) {
+                std::vector<Point> tmp_vec = {point};
+
+                vector<glm::vec2> k(4);
+                vector<glm::vec2> l(4);
+
+                glm::vec2 vel_org = point.velocity;
+                glm::vec2 pos_org = point.position;
+
+                // k_1 & l_1
+                k[0] = vel_org;
+                l[0] = getDampedAcceleration(point);
+
+                for (int i = 1; i < 4; i++) {
+                    // k_n; then compute l_n based on new position and velocity
+                    float step_size = (i==3) ? dt : dt*0.5f;
+                    k[i] = vel_org + step_size * l[i-1];
+                    point.velocity = k[i];
+                    point.position = pos_org + step_size * k[i-1];
+                    tmp_vec[0] = point;
+                    updateExtForces(tmp_vec, extForces, tree);
+                    point.force = tmp_vec[0].force;
+                    l[i] = getDampedAcceleration(point);
+                }
+
+                // final update of position and velocity
+                point.velocity = vel_org + dt/6.0f * (l[0] + 2.0f*l[1] + 2.0f*l[2] + l[3]);
+                point.position = pos_org + dt/6.0f * (k[0] + 2.0f*k[1] + 2.0f*k[2] + k[3]);
+            }
+            break;
         }
-        
+
         count++;
 
     }
@@ -113,9 +172,9 @@ void computeTimeStep(float dt,
 
 float computeKineticEnergy(const ParticleSystem& sim)
 {      
-    double kineticEnergy = 0.0;
+    double kineticEnergy = 0.0f;
     for (const Point& point: sim.points) {
-        kineticEnergy += 0.5 * point.mass * glm::length2(point.velocity * point.velocity);
+        kineticEnergy += 0.5f * point.mass * glm::length2(point.velocity * point.velocity);
     }
 
     return kineticEnergy;
@@ -123,8 +182,8 @@ float computeKineticEnergy(const ParticleSystem& sim)
 
 float computePotentialEnergy(const ParticleSystem& sim)
 {
-    const double groundLevel = -1.5;
-    double potentialEnergy = 0.0;
+    const double groundLevel = -1.5f;
+    double potentialEnergy = 0.0f;
     for (const Point& point: sim.points) {
         potentialEnergy += sim.extForces.gravity * point.mass * (point.position[1] - groundLevel);
     }
