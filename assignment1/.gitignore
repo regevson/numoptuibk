@@ -50,3 +50,6 @@ __pycache__/
 
 # Ignore ImGui config file inside src
 /src/imgui.ini
+
+# Ignore .cache folder (clangd)
+/.cache/
