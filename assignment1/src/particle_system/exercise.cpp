@@ -121,8 +121,6 @@ void computeTimeStep(float dt,
                     //                  = (point.position - point.position + dt * point.velocity) / dt 
                     //                  = point.velocity
                 } else {
-                    std::cout << point.position.x << ", " << point.position.y << "\n"; 
-                    std::cout << oldPoints[i].position.x << ", " << oldPoints[i].position.y << "\n\n";
                     // Point has already been initialized and updated at least once.
                     point.velocity = (point.position-oldPoints[i].position) / dt;
                     point.position = 2.0f*point.position - oldPoints[i].position + dt * dt * getDampedAcceleration(point);
