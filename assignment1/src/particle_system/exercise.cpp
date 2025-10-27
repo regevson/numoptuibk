@@ -89,6 +89,7 @@ void computeTimeStep(float dt,
                 // Update velocity based on a = F / m
                 point.velocity += dt * getDampedAcceleration(point);
             }
+            break;
         }
 
         case ParticleSystem::eMethod::EX_SYMPLECTIC:
@@ -101,6 +102,7 @@ void computeTimeStep(float dt,
                 // Update position based on the *new* velocity
                 point.position += dt * point.velocity;
             }
+            break;
         }
 
         case ParticleSystem::eMethod::EX_VERLET:
@@ -124,6 +126,7 @@ void computeTimeStep(float dt,
                     point.velocity = (point.position-oldPoints[i].position) / dt;
                     point.position = 2.0f*point.position - oldPoints[i].position + dt * dt * getDampedAcceleration(point);
                 }
+                break;
             }
             oldPoints = currentPoints;
         }
@@ -156,6 +159,7 @@ void computeTimeStep(float dt,
                 // final update of position and velocity
                 point.velocity = vel_org + dt/6.0f * (l[0] + 2.0f*l[1] + 2.0f*l[2] + l[3]);
                 point.position = pos_org + dt/6.0f * (k[0] + 2.0f*k[1] + 2.0f*k[2] + k[3]);
+                break;
             }
         }
         
