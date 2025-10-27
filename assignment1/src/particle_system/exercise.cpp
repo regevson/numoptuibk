@@ -111,7 +111,6 @@ void computeTimeStep(float dt,
             vector<Point> currentPoints = points;
             updateExtForces(points, extForces, tree);
 
-            std::cout << points.size() << ", " << oldPoints.size() << "\n";
             for (int i = 0; i < points.size(); i++) {
                 Point& point = points[i];
                 if (i >= oldPoints.size()) {
