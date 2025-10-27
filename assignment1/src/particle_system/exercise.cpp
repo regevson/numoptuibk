@@ -104,9 +104,28 @@ void computeTimeStep(float dt,
         }
 
         case ParticleSystem::eMethod::EX_VERLET:
-        {
-            // -- HERE: update points call updateExtForces() to update forces
-            break;
+        {   
+            vector<Point> currentPoints = points;
+            updateExtForces(points, extForces, tree);
+
+            std::cout << points.size() << ", " << oldPoints.size() << "\n";
+            for (int i = 0; i < points.size(); i++) {
+                Point& point = points[i];
+                if (i >= oldPoints.size()) {
+                    // This point has just been initialized.
+                    point.position += dt * point.velocity;
+                    // point.velocity   = (point.position - oldPoint.position) / dt 
+                    //                  = (point.position - point.position + dt * point.velocity) / dt 
+                    //                  = point.velocity
+                } else {
+                    std::cout << point.position.x << ", " << point.position.y << "\n"; 
+                    std::cout << oldPoints[i].position.x << ", " << oldPoints[i].position.y << "\n\n";
+                    // Point has already been initialized and updated at least once.
+                    point.velocity = (point.position-oldPoints[i].position) / dt;
+                    point.position = 2.0f*point.position - oldPoints[i].position + dt * dt * getDampedAcceleration(point);
+                }
+            }
+            oldPoints = currentPoints;
         }
         
         case ParticleSystem::eMethod::EX_RUNGE4:
