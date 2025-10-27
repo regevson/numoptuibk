@@ -151,6 +151,7 @@ void computeTimeStep(float dt,
                     k[i] = vel_org + step_size * l[i-1];
                     point.velocity = k[i];
                     point.position = pos_org + step_size * k[i-1];
+                    tmp_vec[0] = point;
                     updateExtForces(tmp_vec, extForces, tree);
                     point.force = tmp_vec[0].force;
                     l[i] = getDampedAcceleration(point);
