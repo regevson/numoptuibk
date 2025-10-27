@@ -144,7 +144,7 @@ void computeTimeStep(float dt,
                 // k_1 & l_1
                 k[0] = vel_org;
                 l[0] = getDampedAcceleration(point);
-                
+
                 for (int i = 1; i < 4; i++) {
                     // k_n; then compute l_n based on new position and velocity
                     float step_size = (i==3) ? dt : dt*0.5f;
@@ -162,7 +162,7 @@ void computeTimeStep(float dt,
             }
             break;
         }
-        
+
         count++;
 
     }
