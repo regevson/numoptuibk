@@ -145,25 +145,47 @@ void computeTimeStep(float dt,
 
         case ParticleSystem::eMethod::EX_VERLET:
         {   
-            // copy points to assign to `oldPoints` later
-            vector<Point> currentPoints = points;
-            updateExtForces(points, extForces, tree);
 
-            for (int i = 0; i < points.size(); i++) {
-                Point& point = points[i];
-                if (i >= oldPoints.size()) {
-                    // This point has just been initialized.
-                    point.position += dt * point.velocity;
-                    // point.velocity   = (point.position - oldPoint.position) / dt 
-                    //                  = (point.position - point.position + dt * point.velocity) / dt 
-                    //                  = point.velocity
-                } else {
-                    // Point has already been initialized and updated at least once.
-                    point.velocity = (point.position-oldPoints[i].position) / dt;
-                    point.position = 2.0f*point.position - oldPoints[i].position + dt * dt * getDampedAcceleration(point);
+            // Verlet method: 
+            //    x_{n+1} = 2 x_n - x_{n-1} + a_n * dt^2
+            //    v_{n+1} ≈ (x_{n+1} - x_{n-1}) / (2 dt)   (central difference)
+
+            // initialize oldPoints for first time step
+            if (oldPoints.size() != points.size())
+            {
+                oldPoints = points; // copy all info to oldPoints (mass, damping, ... )
+                for (int i = 0; i < points.size(); ++i)
+                {
+                    // euler step applied backwards: x_{n-1} = x_n - v_n * dt
+                    oldPoints[i].position = points[i].position - points[i].velocity * dt;
                 }
             }
-            oldPoints = currentPoints;
+
+            updateExtForces(points, extForces, tree);
+
+            for (int i = 0; i < points.size(); ++i)
+            {
+
+                Point& point = points[i];
+                Point& oldPoint = oldPoints[i];
+
+                if (point.fixed) continue;
+
+                glm::vec2 a_n = getDampedAcceleration(point);
+                glm::vec2& x_n   = point.position;
+                glm::vec2& x_n_1 = oldPoint.position;
+
+                // position-verlet update: x_{n+1} = 2 x_n - x_{n-1} + a_n * dt^2
+                glm::vec2 x_n_plus_1 = 2.0f * x_n - x_n_1 + a_n * (dt * dt);
+                // velocity-update (central difference): v_{n+1} ≈ (x_{n+1} - x_{n-1}) / (2 dt)
+                glm::vec2 v_n_plus_1 = (x_n_plus_1 - x_n_1) / (2.0f * dt);
+
+                // update old and new positions for next timestep
+                oldPoint.position = x_n;
+                point.position = x_n_plus_1;
+                point.velocity = v_n_plus_1;
+            }
+
             break;
         }
         
