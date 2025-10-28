@@ -408,8 +408,36 @@ vector<pair<vec2, vec2>> emitterAsLines(const Emitter& e, float radius = 0.2 )
     return res;
 }
 
+void runScene(ParticleSystem& sim, ParticleSystem::eMethod m, float dt, const std::string& postfix)
+{
+    setup_scene(sim, eScene::PARABOLA);
+    sim.method = m;
+    sim.timeStep = dt;
+    exportErrorOverTime(sim, postfix);
+}
+
+void exportErrors()
+{
+    ParticleSystem test_sim;
+
+    test_sim.extForces.wind = glm::vec2(0.30f, 0.10f);
+    test_sim.damping = 0.20f;
+
+    runScene(test_sim, ParticleSystem::eMethod::EX_EULER, 0.05f,   "Euler_dt0_05");
+    runScene(test_sim, ParticleSystem::eMethod::EX_EULER, 0.001f,  "Euler_dt0_001");
+    runScene(test_sim, ParticleSystem::eMethod::EX_SYMPLECTIC, 0.05f,   "Symplectic_dt0_05");
+    runScene(test_sim, ParticleSystem::eMethod::EX_SYMPLECTIC, 0.001f,  "Symplectic_dt0_001");
+    runScene(test_sim, ParticleSystem::eMethod::EX_VERLET, 0.05f,   "Verlet_dt0_05");
+    runScene(test_sim, ParticleSystem::eMethod::EX_VERLET, 0.001f,  "Verlet_dt0_001");
+    runScene(test_sim, ParticleSystem::eMethod::EX_RUNGE4, 0.05f,   "Runge4_dt0_05");
+    runScene(test_sim, ParticleSystem::eMethod::EX_RUNGE4, 0.001f,  "Runge4_dt0_001");
+}
+
+
 int main(int argc, char** argv)
 {
+    exportErrors();
+
     Viewer viewer;
     viewer.mWindow.title = "01 Particle System";
     viewer.mWindow.width = 1280;
