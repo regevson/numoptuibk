@@ -234,7 +234,7 @@ float computeKineticEnergy(const ParticleSystem& sim)
 {      
     double kineticEnergy = 0.0f;
     for (const Point& point: sim.points) {
-        kineticEnergy += 0.5f * point.mass * glm::length2(point.velocity * point.velocity);
+        kineticEnergy += 0.5f * point.mass * glm::dot(point.velocity, point.velocity);
     }
 
     return kineticEnergy;
@@ -242,12 +242,18 @@ float computeKineticEnergy(const ParticleSystem& sim)
 
 float computePotentialEnergy(const ParticleSystem& sim)
 {
-    const double groundLevel = -1.5f;
-    double potentialEnergy = 0.0f;
-    for (const Point& point: sim.points) {
-        potentialEnergy += sim.extForces.gravity * point.mass * (point.position[1] - groundLevel);
-    }
+    if (!sim.extForces.enableGravity) return 0.0f;
 
+    const float g = 9.81f;
+    const float groundY = -1.5f;
+
+    float potentialEnergy = 0.0f;
+    for (const Point& point : sim.points)
+    {
+        if (point.fixed) continue;
+        float h = point.position.y - groundY;   // height over ground
+        potentialEnergy += g * point.mass * h;
+    }
     return potentialEnergy;
 }
 
