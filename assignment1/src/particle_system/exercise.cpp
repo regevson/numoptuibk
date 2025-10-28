@@ -32,38 +32,50 @@ float posDampedStokes(float t, float x0, float v0, float acc, float kappa_m)
 
 void updateExtForces(vector<Point>& points, const ExternalForces& eF, const shared_ptr<OcTreeStd<size_t, glm::vec2, 2>>& tree )
 {   
-    const float stiffnessPenaltyK = 10000.0f;
-    const float yGround = -1.5f;
+    // constants
+    const float g        = 9.81f;          // gravitational acceleration
+    const float groundY  = -1.5f;          // ground plane height
+    const float kpen     = 10000.0f;       // penalty stiffness for ground collision
+    const glm::vec2 gravitationalCenter   = glm::vec2(0.0f, 0.0f); // gravitational center
 
-    const glm::vec2 zeroPoint = glm::vec2(0.0f,0.0f);
+    for (Point& p : points)
+    {
+        if (p.fixed) continue; // skip fixed particles
 
-    for (Point& point: points) {
-        // Skip fixed points
-        if (point.fixed) continue;
-        
-        glm::vec2 force = glm::vec2(0.0f, 0.0f);
+        glm::vec2 F(0.0f);
 
-        if (eF.enableGravity) {
-            // Universal Gravity
-            force += ((eF.centerGravity * point.mass) / glm::distance2(zeroPoint, point.position)) * glm::normalize(zeroPoint-point.position);
-            // Uniform Gravity 
-            force += glm::vec2(0.0f, -eF.gravity * point.mass);
+        // gravity
+        if (eF.enableGravity)
+            F += p.mass * glm::vec2(0.0f, -g);
+
+        // wind
+        F += eF.wind;
+
+        // ground collision (penalty force)
+        if (eF.enableGround)
+        {
+            float penetration = groundY - p.position.y; // >0 when below ground
+            if (penetration > 0.0f)
+                F += kpen * penetration * glm::vec2(0.0f, 1.0f);
         }
-        // Wind
-        force += eF.wind;
-        // Collision Force (Ground)
-        if (eF.enableGround && point.position[1] < yGround) {
-            force += glm::vec2(0.0f, stiffnessPenaltyK * (yGround-point.position[1]));
+
+        // gravitational center (using Newton's law)
+        if (eF.centerGravity > 0.0f)
+        {
+            glm::vec2 d  = gravitationalCenter - p.position;
+            float r2 = glm::dot(d, d);
+            F += (eF.centerGravity * p.mass / r2) * glm::normalize(d);
         }
 
-        // Update point's force
-        point.force = force;
+        p.force = F;
     }
 }
 
 glm::vec2 getDampedAcceleration(const Point& point) {
-    // a = Force / mass; add viscous dampening
-    return (point.force - point.velocity * point.damping) / point.mass;
+    // a(t) = A - (k/m)v(t)
+    // A = F_ext / m
+    glm::vec2 a = (point.force / point.mass) - (point.damping * point.velocity) / point.mass;
+    return a;
 }
 
 void computeTimeStep(float dt, 
@@ -76,17 +88,35 @@ void computeTimeStep(float dt,
     static uint64_t count = 0;
     static vector<Point> oldPoints;
 
+
+    // we have 2nd order ODE: x''(t) = a(t, x(t), x'(t))
+    // we can rewrite to a first order system: 
+    //   x'(t) = v(t)                ->  fx(t,v(t)) = v(t)
+    //   v'(t) = a(t, x(t), v(t))    ->  fv(t,x(t),v(t)) = a(t, x(t), v(t))
+
+
     switch (method)
     {
         case ParticleSystem::eMethod::EX_EULER:
         {
             // -- HERE: update points call updateExtForces() to update forces
             updateExtForces(points, extForces, tree);
+
+            // explicit (forward) Euler: 
+            //   x(t+1) = x(t) + dt * fx(t, v(t)) = x(t) + dt * v(t)
+            //                                    = x_n + dt * v_n
+            //   v(t+1) = v(t) + dt * fv(t, x(t), v(t)) = v(t) + dt * a(t, x(t), v(t))
+            //                                          = v_n + dt * a(x_n, v_n)
+
             for (Point& point: points) {
+
+                if (point.fixed) continue;
+
                 // Update position based on *current* velocity
                 point.position += dt * point.velocity;
 
-                // Update velocity based on a = F / m
+                // Update velocity based on  a(t) = A - (k/m)v(t)
+                //                           A = F_ext / m
                 point.velocity += dt * getDampedAcceleration(point);
             }
             break;
@@ -95,7 +125,15 @@ void computeTimeStep(float dt,
         case ParticleSystem::eMethod::EX_SYMPLECTIC:
         {
             updateExtForces(points, extForces, tree);
+
+            // symplectic (semi-implicit) Euler: 
+            //   v_{n+1} = v_n + dt * a(x_n, v_n)
+            //   x_{n+1} = x_n + dt * v_{n+1}
+
             for (Point& point: points) {
+
+                if (point.fixed) continue;
+
                 // Update velocity first based on a = F / m
                 point.velocity += dt * getDampedAcceleration(point);
 
