@@ -277,10 +277,119 @@ vec2 computeAnalytic(const vec2& x0, const vec2& v0, float mass, const vec2& win
     }
 }
 
+std::pair<float, double> errorAtImpact(ParticleSystem& sim, float dt, ParticleSystem::eMethod method)
+{
+    // store current configuration (we'll restore it at the end)
+    const auto method0 = sim.method;
+    const float dt0 = sim.timeStep;
 
-// -- HERE add function ... errorAtImpact( ... )
-//{
-//}
+    // reset scene
+    setup_scene(sim, eScene::PARABOLA);
+
+    // configure integrator and time step
+    sim.method = method;
+    sim.timeStep = dt;
+
+    if (sim.emitters.size() == 0) return { 0.0f, 0.0 };
+
+    const Emitter& e = sim.emitters[0];
+
+    vec2 v0 = e.velocity * angleToVec2(e.direction);
+
+    // create one new particle to be tracked for measurement
+    sim.createPoint(e.position).velocity = v0;
+    Point& p = sim.points[sim.points.size() - 1];
+
+    // store actual life time and set to forever
+    for (auto& ps : sim.points)
+        ps.lifeTime = 0.0;
+
+    // timing start (seconds) -> milliseconds
+    const double tStart = glfwGetTime();
+
+    // prepare measure state
+    float local_t = 0.0;
+
+    auto PAnalytic = vec2(0.0);
+    auto lastP = p.position;
+    float finalError = 0.0f;
+
+    // simulation loop for one shot and output error for one particle
+    size_t safetyCount = 0;
+    while ((safetyCount < 2 || p.position.y > -1.5f) &&
+           safetyCount < 100000)
+    {
+        lastP = p.position;
+        sim.update();
+
+        // Interpolate between the overshooting point and the last
+        // to retrieve the error at the impact position ( y = -1.5 )
+        if (safetyCount > 2 && p.position.y < -1.5f)
+        {
+            float d1 = lastP.y + 1.5f;
+            float d2 = -1.5f - p.position.y;
+            float w1 = (d1 / (d1 + d2));
+            float w2 = 1.0f - w1;
+
+            vec2 interpolatedP = lastP * w2 + p.position * w1;
+            float interpolatedT = local_t * w2 + (local_t + sim.timeStep) * w1;
+
+            PAnalytic = computeAnalytic(e.position, v0, sim.mass, sim.extForces.wind, sim.damping, interpolatedT);
+
+            // NEW: compute the final error (between analytic and interpolated)
+            finalError = glm::distance(interpolatedP, PAnalytic);
+            break;
+        }
+
+        local_t += sim.timeStep;
+        safetyCount++;
+    }
+
+    const double tEnd = glfwGetTime();
+    const double elapsedMs = (tEnd - tStart) * 1000.0;
+
+    // restore previous configuration
+    setup_scene(sim, eScene::PARABOLA);
+    sim.method = method0;
+    sim.timeStep = dt0;
+
+    return { finalError, elapsedMs };
+}
+
+
+void exportStepSizeSeries(ParticleSystem& sim, const std::vector<float>& dts)
+{
+    const std::string filename = "OptiNum_A1_StepSizeSeries.csv";
+    std::ofstream out(filename, std::ios_base::trunc);
+
+    out << "dt"
+        << ", ExEuler_error, ExEuler_ms"
+        << ", ExSymplectic_error, ExSymplectic_ms"
+        << ", ExVerlet_error, ExVerlet_ms"
+        << ", ExRK4_error, ExRK4_ms"
+        << "\n";
+
+    for (float dt : dts)
+    {
+        out << dt;
+
+        auto [err_euler, ms_euler] = errorAtImpact(sim, dt, ParticleSystem::eMethod::EX_EULER);
+        out << ", " << err_euler << ", " << ms_euler;
+
+        auto [err_symp, ms_symp] = errorAtImpact(sim, dt, ParticleSystem::eMethod::EX_SYMPLECTIC);
+        out << ", " << err_symp << ", " << ms_symp;
+
+        auto [err_verlet, ms_verlet] = errorAtImpact(sim, dt, ParticleSystem::eMethod::EX_VERLET);
+        out << ", " << err_verlet << ", " << ms_verlet;
+
+        auto [err_rk4, ms_rk4] = errorAtImpact(sim, dt, ParticleSystem::eMethod::EX_RUNGE4);
+        out << ", " << err_rk4 << ", " << ms_rk4;
+
+        out << "\n";
+    }
+
+    out.close();
+}
 
 
 void exportErrorOverTime(ParticleSystem& sim, string post_fix)
@@ -642,10 +751,10 @@ int main(int argc, char** argv)
 
                 if (ImGui::Button("ExportStepsizeSeries"))
                 {
-                    // -- HERE: create csv file with final errors dependent on dt and integration method 
-                    //          utilizing the errorAtImpact() function
-
+                    std::vector<float> dts = { 0.05f, 0.02f, 0.01f, 0.005f, 0.002f, 0.001f };
+                    exportStepSizeSeries(sim, dts);
                     // reset scene
+                    setup_scene(sim, eScene::PARABOLA);
                     setup_scene(sim, eScene::PARABOLA);
                 }
             }
