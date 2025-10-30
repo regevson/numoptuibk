@@ -195,7 +195,7 @@ void computeTimeStep(float dt,
 
     // we have 2nd order ODE: x''(t) = a(t, x(t), x'(t))
     // we can rewrite to a first order system: 
-    //   x'(t) = v(t)                ->  fx(t,v(t)) = v(t)
+    //   x'(t) = v(t)                ->  fx(t,x(t),v(t)) = v(t)
     //   v'(t) = a(t, x(t), v(t))    ->  fv(t,x(t),v(t)) = a(t, x(t), v(t))
 
 
@@ -207,7 +207,7 @@ void computeTimeStep(float dt,
             updateExtForces(points, extForces, tree);
 
             // explicit (forward) Euler: 
-            //   x(t+1) = x(t) + dt * fx(t, v(t)) = x(t) + dt * v(t)
+            //   x(t+1) = x(t) + dt * fx(t, x(t), v(t)) = x(t) + dt * v(t)
             //                                    = x_n + dt * v_n
             //   v(t+1) = v(t) + dt * fv(t, x(t), v(t)) = v(t) + dt * a(t, x(t), v(t))
             //                                          = v_n + dt * a(x_n, v_n)
