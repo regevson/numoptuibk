@@ -32,38 +32,50 @@ float posDampedStokes(float t, float x0, float v0, float acc, float kappa_m)
 
 void updateExtForces(vector<Point>& points, const ExternalForces& eF, const shared_ptr<OcTreeStd<size_t, glm::vec2, 2>>& tree )
 {   
-    const float stiffnessPenaltyK = 10000.0f;
-    const float yGround = -1.5f;
+    // constants
+    const float g        = 9.81f;          // gravitational acceleration
+    const float groundY  = -1.5f;          // ground plane height
+    const float kpen     = 10000.0f;       // penalty stiffness for ground collision
+    const glm::vec2 gravitationalCenter   = glm::vec2(0.0f, 0.0f); // gravitational center
 
-    const glm::vec2 zeroPoint = glm::vec2(0.0f,0.0f);
+    for (Point& p : points)
+    {
+        if (p.fixed) continue; // skip fixed particles
 
-    for (Point& point: points) {
-        // Skip fixed points
-        if (point.fixed) continue;
-        
-        glm::vec2 force = glm::vec2(0.0f, 0.0f);
+        glm::vec2 F(0.0f);
 
-        if (eF.enableGravity) {
-            // Universal Gravity
-            force += ((eF.centerGravity * point.mass) / glm::distance2(zeroPoint, point.position)) * glm::normalize(zeroPoint-point.position);
-            // Uniform Gravity 
-            force += glm::vec2(0.0f, -eF.gravity * point.mass);
+        // gravity
+        if (eF.enableGravity)
+            F += p.mass * glm::vec2(0.0f, -g);
+
+        // wind
+        F += eF.wind;
+
+        // ground collision (penalty force)
+        if (eF.enableGround)
+        {
+            float penetration = groundY - p.position.y; // >0 when below ground
+            if (penetration > 0.0f)
+                F += kpen * penetration * glm::vec2(0.0f, 1.0f);
         }
-        // Wind
-        force += eF.wind;
-        // Collision Force (Ground)
-        if (eF.enableGround && point.position[1] < yGround) {
-            force += glm::vec2(0.0f, stiffnessPenaltyK * (yGround-point.position[1]));
+
+        // gravitational center (using Newton's law)
+        if (eF.centerGravity > 0.0f)
+        {
+            glm::vec2 d  = gravitationalCenter - p.position;
+            float r2 = glm::dot(d, d);
+            F += (eF.centerGravity * p.mass / r2) * glm::normalize(d);
         }
 
-        // Update point's force
-        point.force = force;
+        p.force = F;
     }
 }
 
 glm::vec2 getDampedAcceleration(const Point& point) {
-    // a = Force / mass; add viscous dampening
-    return (point.force - point.velocity * point.damping) / point.mass;
+    // a(t) = A - (k/m)v(t)
+    // A = F_ext / m
+    glm::vec2 a = (point.force / point.mass) - (point.damping * point.velocity) / point.mass;
+    return a;
 }
 
 void computeTimeStep(float dt, 
@@ -76,17 +88,35 @@ void computeTimeStep(float dt,
     static uint64_t count = 0;
     static vector<Point> oldPoints;
 
+
+    // we have 2nd order ODE: x''(t) = a(t, x(t), x'(t))
+    // we can rewrite to a first order system: 
+    //   x'(t) = v(t)                ->  fx(t,v(t)) = v(t)
+    //   v'(t) = a(t, x(t), v(t))    ->  fv(t,x(t),v(t)) = a(t, x(t), v(t))
+
+
     switch (method)
     {
         case ParticleSystem::eMethod::EX_EULER:
         {
             // -- HERE: update points call updateExtForces() to update forces
             updateExtForces(points, extForces, tree);
+
+            // explicit (forward) Euler: 
+            //   x(t+1) = x(t) + dt * fx(t, v(t)) = x(t) + dt * v(t)
+            //                                    = x_n + dt * v_n
+            //   v(t+1) = v(t) + dt * fv(t, x(t), v(t)) = v(t) + dt * a(t, x(t), v(t))
+            //                                          = v_n + dt * a(x_n, v_n)
+
             for (Point& point: points) {
+
+                if (point.fixed) continue;
+
                 // Update position based on *current* velocity
                 point.position += dt * point.velocity;
 
-                // Update velocity based on a = F / m
+                // Update velocity based on  a(t) = A - (k/m)v(t)
+                //                           A = F_ext / m
                 point.velocity += dt * getDampedAcceleration(point);
             }
             break;
@@ -95,7 +125,15 @@ void computeTimeStep(float dt,
         case ParticleSystem::eMethod::EX_SYMPLECTIC:
         {
             updateExtForces(points, extForces, tree);
+
+            // symplectic (semi-implicit) Euler: 
+            //   v_{n+1} = v_n + dt * a(x_n, v_n)
+            //   x_{n+1} = x_n + dt * v_{n+1}
+
             for (Point& point: points) {
+
+                if (point.fixed) continue;
+
                 // Update velocity first based on a = F / m
                 point.velocity += dt * getDampedAcceleration(point);
 
@@ -107,25 +145,47 @@ void computeTimeStep(float dt,
 
         case ParticleSystem::eMethod::EX_VERLET:
         {   
-            // copy points to assign to `oldPoints` later
-            vector<Point> currentPoints = points;
-            updateExtForces(points, extForces, tree);
 
-            for (int i = 0; i < points.size(); i++) {
-                Point& point = points[i];
-                if (i >= oldPoints.size()) {
-                    // This point has just been initialized.
-                    point.position += dt * point.velocity;
-                    // point.velocity   = (point.position - oldPoint.position) / dt 
-                    //                  = (point.position - point.position + dt * point.velocity) / dt 
-                    //                  = point.velocity
-                } else {
-                    // Point has already been initialized and updated at least once.
-                    point.velocity = (point.position-oldPoints[i].position) / dt;
-                    point.position = 2.0f*point.position - oldPoints[i].position + dt * dt * getDampedAcceleration(point);
+            // Verlet method: 
+            //    x_{n+1} = 2 x_n - x_{n-1} + a_n * dt^2
+            //    v_{n+1} ≈ (x_{n+1} - x_{n-1}) / (2 dt)   (central difference)
+
+            // initialize oldPoints for first time step
+            if (oldPoints.size() != points.size())
+            {
+                oldPoints = points; // copy all info to oldPoints (mass, damping, ... )
+                for (int i = 0; i < points.size(); ++i)
+                {
+                    // euler step applied backwards: x_{n-1} = x_n - v_n * dt
+                    oldPoints[i].position = points[i].position - points[i].velocity * dt;
                 }
             }
-            oldPoints = currentPoints;
+
+            updateExtForces(points, extForces, tree);
+
+            for (int i = 0; i < points.size(); ++i)
+            {
+
+                Point& point = points[i];
+                Point& oldPoint = oldPoints[i];
+
+                if (point.fixed) continue;
+
+                glm::vec2 a_n = getDampedAcceleration(point);
+                glm::vec2& x_n   = point.position;
+                glm::vec2& x_n_1 = oldPoint.position;
+
+                // position-verlet update: x_{n+1} = 2 x_n - x_{n-1} + a_n * dt^2
+                glm::vec2 x_n_plus_1 = 2.0f * x_n - x_n_1 + a_n * (dt * dt);
+                // velocity-update (central difference): v_{n+1} ≈ (x_{n+1} - x_{n-1}) / (2 dt)
+                glm::vec2 v_n_plus_1 = (x_n_plus_1 - x_n_1) / (2.0f * dt);
+
+                // update old and new positions for next timestep
+                oldPoint.position = x_n;
+                point.position = x_n_plus_1;
+                point.velocity = v_n_plus_1;
+            }
+
             break;
         }
         
@@ -174,7 +234,7 @@ float computeKineticEnergy(const ParticleSystem& sim)
 {      
     double kineticEnergy = 0.0f;
     for (const Point& point: sim.points) {
-        kineticEnergy += 0.5f * point.mass * glm::length2(point.velocity * point.velocity);
+        kineticEnergy += 0.5f * point.mass * glm::dot(point.velocity, point.velocity);
     }
 
     return kineticEnergy;
@@ -182,12 +242,18 @@ float computeKineticEnergy(const ParticleSystem& sim)
 
 float computePotentialEnergy(const ParticleSystem& sim)
 {
-    const double groundLevel = -1.5f;
-    double potentialEnergy = 0.0f;
-    for (const Point& point: sim.points) {
-        potentialEnergy += sim.extForces.gravity * point.mass * (point.position[1] - groundLevel);
-    }
+    if (!sim.extForces.enableGravity) return 0.0f;
 
+    const float g = 9.81f;
+    const float groundY = -1.5f;
+
+    float potentialEnergy = 0.0f;
+    for (const Point& point : sim.points)
+    {
+        if (point.fixed) continue;
+        float h = point.position.y - groundY;   // height over ground
+        potentialEnergy += g * point.mass * h;
+    }
     return potentialEnergy;
 }
 
@@ -211,10 +277,119 @@ vec2 computeAnalytic(const vec2& x0, const vec2& v0, float mass, const vec2& win
     }
 }
 
+std::pair<float, double> errorAtImpact(ParticleSystem& sim, float dt, ParticleSystem::eMethod method)
+{
+    // store current configuration (we'll restore it at the end)
+    const auto method0 = sim.method;
+    const float dt0 = sim.timeStep;
 
-// -- HERE add function ... errorAtImpact( ... )
-//{
-//}
+    // reset scene
+    setup_scene(sim, eScene::PARABOLA);
+
+    // configure integrator and time step
+    sim.method = method;
+    sim.timeStep = dt;
+
+    if (sim.emitters.size() == 0) return { 0.0f, 0.0 };
+
+    const Emitter& e = sim.emitters[0];
+
+    vec2 v0 = e.velocity * angleToVec2(e.direction);
+
+    // create one new particle to be tracked for measurement
+    sim.createPoint(e.position).velocity = v0;
+    Point& p = sim.points[sim.points.size() - 1];
+
+    // store actual life time and set to forever
+    for (auto& ps : sim.points)
+        ps.lifeTime = 0.0;
+
+    // timing start (seconds) -> milliseconds
+    const double tStart = glfwGetTime();
+
+    // prepare measure state
+    float local_t = 0.0;
+
+    auto PAnalytic = vec2(0.0);
+    auto lastP = p.position;
+    float finalError = 0.0f;
+
+    // simulation loop for one shot and output error for one particle
+    size_t safetyCount = 0;
+    while ((safetyCount < 2 || p.position.y > -1.5f) &&
+           safetyCount < 100000)
+    {
+        lastP = p.position;
+        sim.update();
+
+        // Interpolate between the overshooting point and the last
+        // to retrieve the error at the impact position ( y = -1.5 )
+        if (safetyCount > 2 && p.position.y < -1.5f)
+        {
+            float d1 = lastP.y + 1.5f;
+            float d2 = -1.5f - p.position.y;
+            float w1 = (d1 / (d1 + d2));
+            float w2 = 1.0f - w1;
+
+            vec2 interpolatedP = lastP * w2 + p.position * w1;
+            float interpolatedT = local_t * w2 + (local_t + sim.timeStep) * w1;
+
+            PAnalytic = computeAnalytic(e.position, v0, sim.mass, sim.extForces.wind, sim.damping, interpolatedT);
+
+            // NEW: compute the final error (between analytic and interpolated)
+            finalError = glm::distance(interpolatedP, PAnalytic);
+            break;
+        }
+
+        local_t += sim.timeStep;
+        safetyCount++;
+    }
+
+    const double tEnd = glfwGetTime();
+    const double elapsedMs = (tEnd - tStart) * 1000.0;
+
+    // restore previous configuration
+    setup_scene(sim, eScene::PARABOLA);
+    sim.method = method0;
+    sim.timeStep = dt0;
+
+    return { finalError, elapsedMs };
+}
+
+
+void exportStepSizeSeries(ParticleSystem& sim, const std::vector<float>& dts)
+{
+    const std::string filename = "OptiNum_A1_StepSizeSeries.csv";
+    std::ofstream out(filename, std::ios_base::trunc);
+
+    out << "dt"
+        << ", ExEuler_error, ExEuler_ms"
+        << ", ExSymplectic_error, ExSymplectic_ms"
+        << ", ExVerlet_error, ExVerlet_ms"
+        << ", ExRK4_error, ExRK4_ms"
+        << "\n";
+
+    for (float dt : dts)
+    {
+        out << dt;
+
+        auto [err_euler, ms_euler] = errorAtImpact(sim, dt, ParticleSystem::eMethod::EX_EULER);
+        out << ", " << err_euler << ", " << ms_euler;
+
+        auto [err_symp, ms_symp] = errorAtImpact(sim, dt, ParticleSystem::eMethod::EX_SYMPLECTIC);
+        out << ", " << err_symp << ", " << ms_symp;
+
+        auto [err_verlet, ms_verlet] = errorAtImpact(sim, dt, ParticleSystem::eMethod::EX_VERLET);
+        out << ", " << err_verlet << ", " << ms_verlet;
+
+        auto [err_rk4, ms_rk4] = errorAtImpact(sim, dt, ParticleSystem::eMethod::EX_RUNGE4);
+        out << ", " << err_rk4 << ", " << ms_rk4;
+
+        out << "\n";
+    }
+
+    out.close();
+}
 
 
 void exportErrorOverTime(ParticleSystem& sim, string post_fix)
@@ -342,8 +517,36 @@ vector<pair<vec2, vec2>> emitterAsLines(const Emitter& e, float radius = 0.2 )
     return res;
 }
 
+void runScene(ParticleSystem& sim, ParticleSystem::eMethod m, float dt, const std::string& postfix)
+{
+    setup_scene(sim, eScene::PARABOLA);
+    sim.method = m;
+    sim.timeStep = dt;
+    exportErrorOverTime(sim, postfix);
+}
+
+void exportErrors()
+{
+    ParticleSystem test_sim;
+
+    test_sim.extForces.wind = glm::vec2(0.30f, 0.10f);
+    test_sim.damping = 0.20f;
+
+    runScene(test_sim, ParticleSystem::eMethod::EX_EULER, 0.05f,   "Euler_dt0_05");
+    runScene(test_sim, ParticleSystem::eMethod::EX_EULER, 0.001f,  "Euler_dt0_001");
+    runScene(test_sim, ParticleSystem::eMethod::EX_SYMPLECTIC, 0.05f,   "Symplectic_dt0_05");
+    runScene(test_sim, ParticleSystem::eMethod::EX_SYMPLECTIC, 0.001f,  "Symplectic_dt0_001");
+    runScene(test_sim, ParticleSystem::eMethod::EX_VERLET, 0.05f,   "Verlet_dt0_05");
+    runScene(test_sim, ParticleSystem::eMethod::EX_VERLET, 0.001f,  "Verlet_dt0_001");
+    runScene(test_sim, ParticleSystem::eMethod::EX_RUNGE4, 0.05f,   "Runge4_dt0_05");
+    runScene(test_sim, ParticleSystem::eMethod::EX_RUNGE4, 0.001f,  "Runge4_dt0_001");
+}
+
+
 int main(int argc, char** argv)
 {
+    exportErrors();
+
     Viewer viewer;
     viewer.mWindow.title = "01 Particle System";
     viewer.mWindow.width = 1280;
@@ -548,10 +751,10 @@ int main(int argc, char** argv)
 
                 if (ImGui::Button("ExportStepsizeSeries"))
                 {
-                    // -- HERE: create csv file with final errors dependent on dt and integration method 
-                    //          utilizing the errorAtImpact() function
-
+                    std::vector<float> dts = { 0.05f, 0.02f, 0.01f, 0.005f, 0.002f, 0.001f };
+                    exportStepSizeSeries(sim, dts);
                     // reset scene
+                    setup_scene(sim, eScene::PARABOLA);
                     setup_scene(sim, eScene::PARABOLA);
                 }
             }
