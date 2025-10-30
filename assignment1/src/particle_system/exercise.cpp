@@ -1,3 +1,5 @@
+#include <cstddef>
+#include <iostream>
 #include <stdlib.h>
 
 #include <vector>
@@ -5,7 +7,12 @@
 #include <fstream>
 #include <algorithm>
 
+#include "glm/common.hpp"
+#include "glm/ext/quaternion_geometric.hpp"
+#include "glm/ext/quaternion_trigonometric.hpp"
 #include "glm/fwd.hpp"
+#include "glm/geometric.hpp"
+#include "glm/trigonometric.hpp"
 #include "particlesystem.h"
 #include "scene.h"
 
@@ -28,6 +35,102 @@ float posDampedStokes(float t, float x0, float v0, float acc, float kappa_m)
     return x0 + (1.0f / kappa_m) * (acc * t + (v0 - acc / kappa_m) * (1.0f - glm::exp(-kappa_m * t)));
 }
 
+glm::vec2 computeFlockingForce (Point& p_i, Point& p_j, const ExternalForces& eF)
+{
+    // Pairwise accelerations (p_i to p_j) for all i,j:
+    // a_a_ij = - k_a / d_ij * nrm(x_ij)
+    // a_v_ij = k_v * (v_j - v_i)
+    // a_c_ij = k_c * x_ij
+    // With: x_ij = x_j - x_i
+    // The k's are provided in externalForces.
+
+    // Weighted sum for all accelerations a_# (a_a, a_v, a_c):
+    // a_#_i = sum[w_t(t_ij) * w_d(d_ij) * a_#_ij]
+
+    // The weights are calculated the following way:
+    //          { 1                   if d < r_1,
+    // w_d(d) = { (r_2-d)/(r_2-r_1)   if r_1 <= d <= r_2,
+    //          { 0                   if d > r_2.
+    // d(istance)
+    // r(adius)
+
+    //              { 1                                 if -th_1/2 < abs(th) < th_1/2
+    // w_th(th) =   { (th_2/2-abs(th))/((th_2-th_1)/2)  if w_1/2 <= abs(th) <= w_2/2
+    //              { 0                                 if abs(th) > th_2/2
+    // th(eta) = angle
+
+    glm::vec2 x_ij = p_j.position - p_i.position;
+    
+    // Distance and angle of vectors.
+    float d_ij = glm::length(x_ij);
+    if (d_ij == 0.0f) return glm::vec2(0.0f); //<- Avoid division by zero
+
+    // Check to avoid NaN values.
+    float th_ij = 0.0f;
+    float v_i_len = glm::length(p_i.velocity);
+    if (v_i_len > 0.0001f) {
+        float cos_t = glm::clamp(glm::dot(p_i.velocity / v_i_len, x_ij / d_ij), -1.0f, 1.0f);
+        th_ij = glm::acos(cos_t);
+    }
+
+    // If one of the weights is zero, the acceleration between the points is zero as well.
+    if (d_ij > eF.flockR2) return glm::vec2(0.0f);
+    if (abs(th_ij) > eF.flockTh2 * 0.5f) return glm::vec2(0.0f);
+
+    // Compute accerleration.
+    glm::vec2 a_a_ij = -eF.flockAvoidance/d_ij * normalize(x_ij);
+    glm::vec2 a_v_ij = eF.flockMatching*(p_j.velocity-p_i.velocity);
+    glm::vec2 a_c_ij = eF.flockCentering * x_ij;
+
+    // Compute weights.
+    float w_d_ij = (d_ij < eF.flockR1) ? 1.0f : (eF.flockR2-d_ij)/(eF.flockR2-eF.flockR1);
+    float w_th_ij = (-eF.flockTh1*0.5f < abs(th_ij) && abs(th_ij) < eF.flockTh1 * 0.5f) ? 
+                        1.0f : (eF.flockTh2*0.5f-abs(th_ij))/((eF.flockTh2-eF.flockTh1)*0.5f);
+
+    // Sum up partial accererations.
+    glm::vec2 A = glm::vec2(0.0f);
+    A += w_th_ij * w_d_ij * a_a_ij;
+    A += w_th_ij * w_d_ij * a_v_ij;
+    A += w_th_ij * w_d_ij * a_c_ij; 
+
+    // F = m * A
+    return p_i.mass * A;
+}
+
+void updateFlockingBruteForce(vector<Point>& points, const ExternalForces& eF, const shared_ptr<OcTreeStd<size_t, glm::vec2, 2>>& tree)
+{
+    for (int i = 0; i < points.size(); i++) {
+        if (points[i].fixed) continue;
+        for (int j = 0; j < points.size(); j++) {
+            if (i==j) continue;
+            if (points[j].fixed) continue;
+            points[i].force += computeFlockingForce(points[i], points[j], eF);
+        }
+    }
+}
+
+void updateFlockingOctree(vector<Point>& points, const ExternalForces& eF, const shared_ptr<OcTreeStd<size_t, glm::vec2, 2>>& tree)
+{
+    for (size_t i = 0; i < points.size() ; i++) {
+        Point p_i = points[i];
+        if (p_i.fixed) continue;
+        multimap<double , size_t> res ; //<−prepare result container
+        tree->getEuclideanRangeFine (p_i.position, eF.flockR2, res) ; //<−query
+        
+        glm::vec2 a_a_i = glm::vec2(0.0f);
+        glm::vec2 a_v_i = glm::vec2(0.0f);
+        glm::vec2 a_c_i = glm::vec2(0.0f);
+
+        for (const auto& r : res) { //<−iterate close neighbors
+            const size_t j = r.second;
+            if (i == j) continue;
+            Point p_j = points[j];
+            if (p_j.fixed) continue;
+
+            p_i.force += computeFlockingForce(p_i, p_j, eF);
+        }
+    }
+}
 
 
 void updateExtForces(vector<Point>& points, const ExternalForces& eF, const shared_ptr<OcTreeStd<size_t, glm::vec2, 2>>& tree )
@@ -69,6 +172,7 @@ void updateExtForces(vector<Point>& points, const ExternalForces& eF, const shar
 
         p.force = F;
     }
+    updateFlockingOctree(points, eF, tree);
 }
 
 glm::vec2 getDampedAcceleration(const Point& point) {
