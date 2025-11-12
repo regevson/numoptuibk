@@ -41,7 +41,7 @@ end
 function showMetaMeshFaceColorsLambert( Verts, Faces, FColors )
     cols = repeat( FColors, inner=4 );
     geometry = GeometryBasics.Mesh( Verts, Faces )
-    mesh_meta = GeometryBasics.meta( geometry, vertexColors=cols )
+    mesh_meta = GeometryBasics.MetaMesh( geometry, vertexColors=cols )
     material = MeshLambertMaterial(vertexColors=true)
     setobject!(vis[:vertex_color_mesh], mesh_meta, material)
 end
@@ -50,7 +50,7 @@ end
 function showMetaMeshFaceColors( Verts::Vector{Point3{Float64}}, Faces::Vector{QuadFace{Int64}}, FColors::Vector{RGB{Float64}} )
     cols = repeat( FColors, inner=4 );
     geometry = GeometryBasics.Mesh( Verts, Faces )
-    mesh_meta = GeometryBasics.meta( geometry, vertexColors=cols )
+    mesh_meta = GeometryBasics.MetaMesh( geometry, vertexColors=cols )
     material = MeshBasicMaterial(vertexColors=true)
     setobject!(vis[:vertex_color_mesh], mesh_meta, material)
 end
