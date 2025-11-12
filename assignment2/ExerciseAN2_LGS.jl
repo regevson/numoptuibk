@@ -11,3 +11,9 @@ function jacobi(A::Matrix, b::Vector, maxiter = 100, epsilon = 1e-8)
 
 end
 
+function solveGroundTruth( A::Matrix, b::Vector )
+    x = A \ b
+    r = norm( A * x - b ) / norm(b)
+    return x, r
+end
+
