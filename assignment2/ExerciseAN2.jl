@@ -53,7 +53,8 @@ Fij, Emission, Vertices, Faces, Colors = createSceneEssentials( 8, 200.0 );
 # Fij, Emission, Vertices, Faces, Colors = createSceneEssentials( 32, 150.0 );
 
 # add solver calls here:
-XGT, RGT = solveGroundTruth( Fij , Emission ) ;
+# XGT, RGT = solveGroundTruth( Fij , Emission ) ;
+XGT, RGT = jacobi( Fij , Emission , 500 , 1e-8 ) ;
 
 # use radiosity X to scale face colors (invoke multRGB function on all elements)
 ColorsShow = map( multRGB, Colors, XGT );
