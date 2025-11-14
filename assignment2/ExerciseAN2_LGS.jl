@@ -42,7 +42,7 @@ function gaussSeidel(A::Matrix, b::Vector, maxiter=100, epsilon=1e-8)
     U = UpperTriangular(A) - D
 
     for iter = 1:maxiter
-        x_new = DL \ (b - U * x)
+        x_new = DL \ (b - U*x)
 
         # residuals
         r = b - A * x_new
@@ -152,7 +152,7 @@ end
 
 function solveGroundTruth( A::Matrix, b::Vector )
     x = A \ b
-    r = norm( A * x - b ) / norm(b)
+    r = norm( A * x - b )
     return x, r
 end
 
