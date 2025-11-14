@@ -102,7 +102,7 @@ XCG, RCG = conjugateGradient(Fij, Emission, maxiter, epsilon)
 plot!(plt, RCG, label="Conjugate Gradient")
 
 display(plt)
-png(plt, "residuals_comparison.png")
+png(plt, "plots/residuals_comparison.png")
 
 # ============================
 #   Timing with loops + confidence intervals
@@ -175,7 +175,7 @@ plt_time = bar(
 )
 
 display(plt_time)
-png(plt_time, "solver_runtimes.png")
+png(plt_time, "plots/solver_runtimes.png")
 
 # use radiosity X to scale face colors (invoke multRGB function on all elements)
 ColorsShow = map(multRGB, Colors, XCG);
