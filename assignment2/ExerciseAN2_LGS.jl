@@ -18,9 +18,10 @@ function jacobi(A::Matrix, b::Vector, maxiter=100, epsilon=1e-8)
 
         # residuals
         r = b - A * x_new
-        push!(residuals, norm(r))
+        residual_norm = norm(r)
+        push!(residuals, residual_norm)
 
-        if norm(r) < epsilon
+        if residual_norm < epsilon
             return x_new, residuals
         end
 
