@@ -76,9 +76,10 @@ function sor(A::Matrix, b::Vector, maxiter=100, epsilon=1e-8, omega::Float64=1.2
 
         # residuals
         r = b - A * x_new
-        push!(residuals, norm(r))
+        residual_norm = norm(r)
+        push!(residuals, residual_norm)
 
-        if norm(r) < epsilon
+        if residual_norm < epsilon
             return x_new, residuals
         end
 
@@ -111,9 +112,10 @@ function gradientDescent(A::Matrix, b::Vector, maxiter=100, epsilon=1e-8)
         alpha = (transpose(r) * r) / (transpose(r) * Ar)
         x_new = x + alpha * r
         r_new = r - alpha * Ar
-        push!(residuals, norm(r_new))
+        residual_norm = norm(r)
+        push!(residuals, residual_norm)
 
-        if norm(r) < epsilon
+        if residual_norm < epsilon
             return x_new, residuals
         end
 
@@ -147,9 +149,10 @@ function conjugateGradient(A::Matrix, b::Vector, maxiter=100, epsilon=1e-8)
         alpha = (transpose(r)*r) / (transpose(p) * A * p)
         x_new = x + alpha * p
         r_new = r - alpha * A * p
-        push!(residuals, norm(r_new))
+        residual_norm = norm(r)
+        push!(residuals, residual_norm)
 
-        if norm(r) < epsilon
+        if residual_norm < epsilon
             return x_new, residuals
         end
 
