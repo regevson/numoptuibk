@@ -6,6 +6,8 @@
 
 ![Residuals fo different solvers](plots/residuals_comparison.png)
 
+> Note the log scale on the y axis.
+
 As expected, the Conjugate Gradient method performs the best, resulting in the lowest normalized residual.
 
 The different solvers can be split into 3 groups of similar performance.
