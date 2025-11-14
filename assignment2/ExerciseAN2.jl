@@ -25,8 +25,8 @@ end
 # installPackages() # <-- comment line after first execution, or the whole Pkg block above
 
 
-include( "Radiosity.jl" )
-include( "ExerciseAN2_LGS.jl" )
+include("Radiosity.jl")
+include("ExerciseAN2_LGS.jl")
 
 
 # setup scene and form factors
@@ -36,9 +36,9 @@ include( "ExerciseAN2_LGS.jl" )
 # @returns:
 #    - Fij NxN matrix of form faktor (N number of faces)
 #    - Emission Nx1
-function createSceneEssentials( resolution::Int64, emission::Float64 )
-    Verts, Faces, FCenters, FNormals, Colors, Emission = setupScene( resolution, emission );
-    Fij = systemMatrix( 0.75, Verts, Faces, FCenters, FNormals );
+function createSceneEssentials(resolution::Int64, emission::Float64)
+    Verts, Faces, FCenters, FNormals, Colors, Emission = setupScene(resolution, emission)
+    Fij = systemMatrix(0.75, Verts, Faces, FCenters, FNormals)
     Fij, Emission, Verts, Faces, Colors
 end
 
@@ -47,7 +47,7 @@ vis = prepareCleanVisualizer()
 
 
 # low res scene
-Fij, Emission, Vertices, Faces, Colors = createSceneEssentials( 8, 200.0 );
+Fij, Emission, Vertices, Faces, Colors = createSceneEssentials(8, 200.0);
 
 # or e.g. a high res scene
 # Fij, Emission, Vertices, Faces, Colors = createSceneEssentials( 32, 150.0 );
@@ -121,7 +121,7 @@ methods = [
 ]
 
 # store all time measurements for each method
-times = Dict{String, Vector{Float64}}(m => Float64[] for m in methods)
+times = Dict{String,Vector{Float64}}(m => Float64[] for m in methods)
 
 for run in 1:n_runs
     # Ground truth
@@ -165,23 +165,23 @@ end
 plt_time = bar(
     methods,
     means,
-    yerr = errs,
-    title = "Mean ± 95% CI, n = $n_runs",
-    xlabel = "Method",
-    ylabel = "Time [s]",
-    legend = false,
-    xticks = (1:length(methods), methods),
-    xrotation = 45,
+    yerr=errs,
+    title="Mean ± 95% CI, n = $n_runs",
+    xlabel="Method",
+    ylabel="Time [s]",
+    legend=false,
+    xticks=(1:length(methods), methods),
+    xrotation=45,
 )
 
 display(plt_time)
 png(plt_time, "solver_runtimes.png")
 
 # use radiosity X to scale face colors (invoke multRGB function on all elements)
-ColorsShow = map( multRGB, Colors, XCG );
+ColorsShow = map(multRGB, Colors, XCG);
 
 # update 3D scene rendering
-showMetaMeshFaceColors( Vertices, Faces, ColorsShow );
+showMetaMeshFaceColors(Vertices, Faces, ColorsShow);
 
 # open scene in browser
 open(vis)

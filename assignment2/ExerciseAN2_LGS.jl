@@ -42,7 +42,7 @@ function gaussSeidel(A::Matrix, b::Vector, maxiter=100, epsilon=1e-8)
     U = UpperTriangular(A) - D
 
     for iter = 1:maxiter
-        x_new = DL \ (b - U*x)
+        x_new = DL \ (b - U * x)
 
         # residuals
         r = b - A * x_new
@@ -150,9 +150,9 @@ function conjugateGradient(A::Matrix, b::Vector, maxiter=100, epsilon=1e-8)
     return x, residuals
 end
 
-function solveGroundTruth( A::Matrix, b::Vector )
+function solveGroundTruth(A::Matrix, b::Vector)
     x = A \ b
-    r = norm( A * x - b )
+    r = norm(A * x - b)
     return x, r
 end
 
