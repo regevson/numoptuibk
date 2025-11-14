@@ -42,7 +42,7 @@ function gaussSeidel(A::Matrix, b::Vector, maxiter=100, epsilon=1e-8)
     U = UpperTriangular(A) - D
 
     for iter = 1:maxiter
-        x_new = DL \ (b - U*x)
+        x_new = DL \ (b - U * x)
 
         # residuals
         r = b - A * x_new
@@ -91,79 +91,63 @@ end
 
 function gradientDescent(A::Matrix, b::Vector, maxiter=100, epsilon=1e-8)
     # Use Steepest Descent Method
-    x = zeros(length(b))
-    x_new = copy(x)
-    residuals = Float64[]
-
-    r = 0
-    r_new = 0
+    x = zeros(eltype(A), length(b))
+    r = b - A * x
+    residuals = Float64[norm(r)]
 
     for iter = 1:maxiter
-        # r^(k+1) from last iteration is now r^(k).
-        r = r_new
-
-        if (iter == 1)
-            r = b - A * x
-        end
-
         # Do Maxtirx x Vector only once and store
         Ar = A * r
-        
-        alpha = (transpose(r) * r) / (transpose(r) * Ar)
-        x_new = x + alpha * r
-        r_new = r - alpha * Ar
+
+        # alpha = (r^T r) / (r^T A r)
+        alpha = dot(r, r) / dot(r, Ar)
+        # x_k+1 = x_k + alpha * r_k
+        x .+= alpha .* r # "." for allocation avoidance
+        # r_k+1 = r - alpha * A * r_k
+        r .-= alpha .* Ar
+
         residual_norm = norm(r)
         push!(residuals, residual_norm)
 
         if residual_norm < epsilon
-            return x_new, residuals
+            return x, residuals
         end
-
-        x = x_new
     end
 
-    return x_new, residuals
+    return x, residuals
 end
 
 function conjugateGradient(A::Matrix, b::Vector, maxiter=100, epsilon=1e-8)
-    x = zeros(length(b))
-    x_new = copy(x)
-    residuals = Float64[]
-
-    
-    r = 0
-    r_new = 0
-    p = 0
-    p_new = 0
+    x = zeros(eltype(A), length(b))
+    r = b - A * x
+    p = copy(r)
+    residuals = Float64[norm(r)]
 
     for iter = 1:maxiter
-        # r^(k+1) from last iteration is now r^(k). The same is true for p.
-        r = r_new
-        p = p_new
+        Ap = A * p
+        rr = dot(r, r)
+        alpha = rr / dot(p, Ap)
 
-        if (iter == 1)
-            r = b - A * x
-            p = r
-        end
-        
-        alpha = (transpose(r)*r) / (transpose(p) * A * p)
-        x_new = x + alpha * p
-        r_new = r - alpha * A * p
-        residual_norm = norm(r)
+        # x_k+1 = x_k + alpha * p_k
+        x += alpha * p
+        # r_k+1 = r_k - alpha * A * p_k
+        r_new = r .- alpha .* Ap
+
+        residual_norm = norm(r_new)
         push!(residuals, residual_norm)
 
         if residual_norm < epsilon
-            return x_new, residuals
+            break
         end
 
         # we never need beta^(k), just beta^(k+1) so we do not need to update at beginning of iteration
-        beta_new = (transpose(r_new) * r_new) / (transpose(r) * r)
-        p_new = r_new + beta_new * p
+        beta_new = dot(r_new, r_new) / rr
 
-        x = x_new
+        p .= r_new + beta_new * p
+        r .= r_new
     end
 
-    return x_new, residuals
+    return x, residuals
 end
 
 function solveGroundTruth( A::Matrix, b::Vector )
