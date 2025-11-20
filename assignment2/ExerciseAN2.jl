@@ -177,11 +177,58 @@ plt_time = bar(
 display(plt_time)
 png(plt_time, "plots/solver_runtimes.png")
 
-# use radiosity X to scale face colors (invoke multRGB function on all elements)
-ColorsShow = map(multRGB, Colors, XCG);
 
-# update 3D scene rendering
-showMetaMeshFaceColors(Vertices, Faces, ColorsShow);
+# ------------------------------------------------------------------------------------------
+#   Difference Visualization
 
-# open scene in browser
-open(vis)
+using Printf
+
+XGT, _ = solveGroundTruth(Fij, Emission)
+
+# iterations to visualize
+iters_vis = [3, 8, maxiter]
+
+methods_vis = [
+    ("Jacobi", (F, E, it, eps) -> jacobi(F, E, it, eps)),
+    ("Gauss-Seidel", (F, E, it, eps) -> gaussSeidel(F, E, it, eps)),
+    ("SOR (ω=1.25)", (F, E, it, eps) -> sor(F, E, it, eps, 1.25)),
+    ("Gradient Descent", (F, E, it, eps) -> gradientDescent(F, E, it, eps)),
+    ("Conjugate Gradient", (F, E, it, eps) -> conjugateGradient(F, E, it, eps))
+]
+
+println("Starting loop...")
+
+for (method_name, solver_func) in methods_vis
+    println("\n--- Visualizing method: $method_name ---")
+    
+    for iter in iters_vis
+        # we use a very small epsilon to ensure it runs for 'iter' steps
+        X_sol, _ = solver_func(Fij, Emission, iter, 0.0) 
+
+        # compute absolute difference
+        diff = abs.(X_sol - XGT)
+
+        # determine scaling factor
+        # we want the maximum difference to be visible (eg. mapped to 1.0 or similar)
+        # scaling so max diff is 1.0
+        current_max_diff = maximum(diff)
+        if current_max_diff > 0
+            scaling = 1.0 / current_max_diff
+        else
+            scaling = 1.0
+        end
+        
+        # apply scaling
+        diff_scaled = diff .* scaling
+        
+        # map to colors (multiply original colors by scaled difference)
+        ColorsDiff = map(multRGB, Colors, diff_scaled)
+        
+        # update visualizer
+        showMetaMeshFaceColors(Vertices, Faces, ColorsDiff)
+        
+        println("Displaying difference for $method_name at Iteration: $iter. Scaling Factor: $scaling")
+        println("Press Enter to continue...")
+        readline()
+    end
+end
