@@ -139,7 +139,7 @@ if __name__ == "__main__":
         (th, _thdot) = state
         err_i_k, err_k, err_dot_k = err_state # prev error-vec
         
-        current_error = th - env.unwrapped.goal
+        current_error = env.unwrapped.goal - th
         dot_error = (current_error - err_k) / env.unwrapped.dt # change in error
         int_error = err_i_k + current_error * env.unwrapped.dt
         
